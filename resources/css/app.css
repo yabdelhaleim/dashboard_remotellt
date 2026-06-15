@@ -1,0 +1,156 @@
+/* =====================================================================
+   REMOTELLY — Global Stylesheet
+   Arabic-First, Premium Dark Design System
+   ===================================================================== */
+
+/* --- Google Fonts: Best Arabic fonts for professional UI --- */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================================
+   Root Variables
+   ===================================================================== */
+:root {
+  direction: rtl;
+  scroll-behavior: smooth;
+
+  /* Typography Scale */
+  --font-display: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  --font-body:    'Tajawal', 'Cairo', system-ui, sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  /* Brand Colors */
+  --color-primary-50:  #FDF8FC;
+  --color-primary-100: #F5E6F2;
+  --color-primary-200: #EABBE0;
+  --color-primary-400: #714B67;
+  --color-primary-600: #5C3D54;
+  --color-primary-800: #432B3C;
+  --color-primary-900: #2A1A26;
+
+  /* Dark Palette */
+  --color-dark-bg:     #08090C;
+  --color-dark-card:   #0F111A;
+  --color-dark-hover:  #171A26;
+  --color-dark-border: #1D2132;
+  --color-dark-text:   #E2E8F0;
+  --color-dark-muted:  #64748B;
+}
+
+/* =====================================================================
+   Base Resets
+   ===================================================================== */
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  /* Arabic text fundamentally should NOT have letter-spacing */
+  [lang="ar"], .font-ar, p, h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0 !important;
+  }
+
+  /* Headings: Cairo Bold is crystal clear and tight for modern Arabic web design */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 800; /* Extra Bold */
+    line-height: 1.45;
+  }
+
+  h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700; /* Bold */
+    line-height: 1.4;
+  }
+
+  b, strong {
+    font-weight: 800; /* Making sure bold text is very bold and visible */
+  }
+}
+
+/* =====================================================================
+   Custom Scrollbar
+   ===================================================================== */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #08090C;
+}
+::-webkit-scrollbar-thumb {
+  background: #1D2132;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #714B67;
+}
+
+/* =====================================================================
+   Utility Classes
+   ===================================================================== */
+.font-display {
+  font-family: var(--font-display) !important;
+}
+.font-body {
+  font-family: var(--font-body) !important;
+}
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+/* Smooth Transitions */
+.transition-premium {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Gradient Text Helper */
+.text-gradient-purple {
+  background: linear-gradient(135deg, #EABBE0, #A855F7, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon Glow Helpers */
+.glow-purple { text-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
+.glow-cyan   { text-shadow: 0 0 20px rgba(6, 182, 212, 0.5); }
+
+/* Card Glass Effect */
+.glass-card {
+  background: rgba(15, 17, 26, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(29, 33, 50, 0.8);
+}
+
+/* =====================================================================
+   Arabic Typography Fix — hero headline
+   ===================================================================== */
+.hero-headline {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 900; /* Black weight for maximum impact */
+  line-height: 1.45; /* Tighter line height for large headings */
+  letter-spacing: 0;
+  word-spacing: 2px;
+}
+
+.section-headline {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 850; /* Extra bold */
+  line-height: 1.4;
+  letter-spacing: 0;
+}
