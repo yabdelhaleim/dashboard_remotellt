@@ -236,8 +236,15 @@ const selectedProduct = computed(() => {
   return products.value.find(p => p.id === selectedProductId.value) || null
 })
 
+// Set initial selection when products load
+watch(products, (newProducts) => {
+  if (newProducts.length > 0 && !selectedProductId.value) {
+    selectedProductId.value = newProducts[0].id
+  }
+}, { immediate: true })
+
 onMounted(() => {
-  if (products.value.length > 0) {
+  if (products.value.length > 0 && !selectedProductId.value) {
     selectedProductId.value = products.value[0].id
   }
 })
