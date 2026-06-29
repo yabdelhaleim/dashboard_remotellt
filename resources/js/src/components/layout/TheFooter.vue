@@ -6,9 +6,7 @@
         
         <!-- Brand -->
         <div class="text-center md:text-right">
-          <span class="font-display font-black text-[1.7rem] tracking-wide text-white select-none leading-none">
-            REMOTE<span class="text-vibrant-purple drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">LLY</span>
-          </span>
+          <img :src="'/logo.png'" alt="Remotelly Logo" class="logo-img h-9 w-auto mx-auto md:mx-0 object-contain" />
           <p class="font-body font-normal text-dark-muted text-sm mt-2 leading-ar-normal">
             شريكك التقني الموثوق لبناء وتفعيل الأنظمة السحابية
           </p>

@@ -5,9 +5,7 @@
         
         <!-- Logo -->
         <router-link to="/" class="flex items-center gap-2 group shrink-0">
-          <span class="font-display font-black text-[1.6rem] tracking-wide text-white select-none leading-none">
-            REMOTE<span class="text-vibrant-purple group-hover:text-vibrant-pink transition-colors duration-300 drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">LLY</span>
-          </span>
+          <img :src="'/logo.png'" alt="Remotelly" class="logo-img h-10 w-auto object-contain transition-all duration-300 group-hover:scale-[1.03]" />
         </router-link>
 
         <!-- Desktop Menu -->

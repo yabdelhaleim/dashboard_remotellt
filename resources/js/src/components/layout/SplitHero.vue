@@ -15,21 +15,21 @@
           </span>
         </div>
 
-        <!-- Headline — الأهم: توضيح الخط -->
-        <h1 class="hero-headline text-[2rem] sm:text-[2.5rem] lg:text-[2.75rem] text-white">
-          امتلك نظامك
+        <!-- Headline — منصة ريموتلي السحابية -->
+        <h1 class="hero-headline text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] text-white tracking-normal font-extrabold leading-[1.3] text-right">
+          منصة
           <span class="relative inline-block">
-            <span class="bg-gradient-to-l from-vibrant-cyan via-vibrant-purple to-primary-200 bg-clip-text text-transparent">
-              السحابي الذكي
+            <span class="bg-gradient-to-l from-vibrant-cyan via-vibrant-purple to-primary-200 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(168,85,247,0.3)] font-black">
+              ريـمـوتـلـي
             </span>
           </span>
           <br />
-          <span class="text-slate-200">وأدر أعمالك بكفاءة</span>
+          <span class="text-slate-200 font-extrabold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.5rem]">للأنظمة السحابية وتطبيقات الجوال</span>
         </h1>
 
         <!-- Subheading -->
-        <p class="font-body font-normal text-slate-300 text-base sm:text-lg leading-ar-relaxed max-w-xl">
-          فريق ريموتلي يصمم ويبني لك أنظمة مخصصة لإدارة المخازن، المطاعم، والكاشير. نساعدك على أتمتة مبيعاتك ومراقبة أرباحك من أي مكان.
+        <p class="font-body font-normal text-slate-300 text-base sm:text-lg leading-ar-relaxed max-w-2xl text-right">
+          شركة ريموتلي متخصصة في تطوير وتصميم البرمجيات السحابية المتكاملة (SaaS) وتطبيقات الهاتف الذكي (iOS & Android). نبتكر حلولاً رقمية ذكية ومخصصة لأتمتة أعمالك، وإدارة مبيعاتك، مخازنك، ومطاعمك من أي مكان بالعالم بأعلى معايير السرعة والأمان.
         </p>
 
         <!-- Benefit Checklist -->

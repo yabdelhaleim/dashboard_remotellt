@@ -54,9 +54,8 @@ export default {
         },
       },
       fontFamily: {
-        // Cairo: Best Arabic web font — crystal clear at all weights
-        display: ['Cairo', 'Tajawal', 'sans-serif'],
-        body:    ['Tajawal', 'Cairo', 'sans-serif'],
+        display: ['Cairo', 'Reem Kufi', 'sans-serif'],
+        body:    ['Reem Kufi', 'Cairo', 'sans-serif'],
         mono:    ['IBM Plex Mono', 'monospace'],
       },
       fontSize: {
