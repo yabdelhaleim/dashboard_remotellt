@@ -9,53 +9,53 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Brand — Elegant Violet
+        // Primary Brand — Warm Rust (from Logo)
         primary: {
-          50:  '#FDF8FC',
-          100: '#F5E6F2',
-          200: '#EABBE0',
-          400: '#714B67',
-          600: '#5C3D54',
-          800: '#432B3C',
-          900: '#2A1A26',
+          50:  '#FAF8F5',
+          100: '#FBEFEA',
+          200: '#F5D7C9',
+          400: '#C06C47', // Rust Orange
+          600: '#A15431',
+          800: '#773D22',
+          900: '#4B2412',
         },
         charcoal: {
-          50:  '#F8FAFC',
-          100: '#F1F5F9',
-          400: '#94A3B8',
-          700: '#475569',
-          800: '#1E293B',
-          900: '#0F172A',
+          50:  '#FAF9F6',
+          100: '#F4F2EE',
+          200: '#E4DFD9',
+          700: '#7E766D',
+          800: '#4D4741',
+          900: '#2A2622',
         },
         warm: {
-          50:     '#FAF9FC',
-          100:    '#F4F2F7',
-          200:    '#ECE8F2',
-          border: '#E2DFE8',
+          50:     '#FDFBF7',
+          100:    '#FAF6F0',
+          200:    '#F1EAE0',
+          border: '#E3D8C8',
         },
-        // Premium Dark Palette
+        // Sophisticated Dark Sienna Palette (for warm dark mode)
         dark: {
-          bg:     '#08090C',
-          card:   '#0F111A',
-          hover:  '#171A26',
-          border: '#1D2132',
-          text:   '#E2E8F0',
-          muted:  '#64748B',
+          bg:     '#0C0B0A', // Deep obsidian black-brown
+          card:   '#141311', // Warm dark clay sienna
+          hover:  '#1C1B18', // Warm hover clay
+          border: '#262420', // Earthy border
+          text:   '#FAF8F5', // Warm cream white
+          muted:  '#908980', // Earthy muted gray
         },
-        // Vibrant Accent Colors
+        // Logo Accent colors mapped to existing classes to preserve layout styles
         vibrant: {
-          purple: '#A855F7',
-          pink:   '#EC4899',
-          blue:   '#3B82F6',
-          teal:   '#14B8A6',
-          cyan:   '#06B6D4',
-          indigo: '#6366F1',
-          lime:   '#84CC16',
+          purple: '#C06C47', // Rust Orange
+          pink:   '#D49B4B', // Ochre Gold
+          blue:   '#4E6B53', // Olive Forest Green
+          teal:   '#5C7D61', // Sage Green
+          cyan:   '#E2865E', // Light Terracotta
+          indigo: '#A6532C', // Deep Ochre
+          lime:   '#A2B591', // Soft Moss
         },
       },
       fontFamily: {
-        display: ['Cairo', 'Reem Kufi', 'sans-serif'],
-        body:    ['Reem Kufi', 'Cairo', 'sans-serif'],
+        display: ['Cairo', 'sans-serif'],
+        body:    ['Cairo', 'sans-serif'],
         mono:    ['IBM Plex Mono', 'monospace'],
       },
       fontSize: {

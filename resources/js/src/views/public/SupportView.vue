@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-slate-950 text-white font-body flex flex-col justify-between overflow-x-hidden relative">
+  <div class="min-h-screen bg-dark-bg text-dark-text flex flex-col justify-between overflow-x-hidden relative">
     
     <!-- Floating background glow spots -->
     <div class="absolute top-[15%] left-[-10%] w-[500px] h-[500px] bg-primary-400/10 rounded-full blur-[180px] pointer-events-none"></div>
@@ -376,6 +376,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { locale } from '../../utils/locale'
 import TheNavbar from '../../components/layout/TheNavbar.vue'
 import TheFooter from '../../components/layout/TheFooter.vue'
 import { useTicketsStore } from '../../stores/useTicketsStore'

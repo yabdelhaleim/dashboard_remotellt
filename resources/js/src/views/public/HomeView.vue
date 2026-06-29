@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-slate-950 text-white font-body flex flex-col justify-between overflow-x-hidden relative">
+  <div class="min-h-screen bg-dark-bg text-dark-text flex flex-col justify-between overflow-x-hidden relative">
     
     <!-- Floating background glow spots for the "cheerful/vibrant" dark vibe -->
     <div class="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-primary-400 rounded-full blur-[180px] opacity-10 pointer-events-none"></div>
@@ -34,6 +34,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { locale } from '../../utils/locale'
 import TheNavbar from '../../components/layout/TheNavbar.vue'
 import SplitHero from '../../components/layout/SplitHero.vue'
 import ProductsSection from '../../components/home/ProductsSection.vue'

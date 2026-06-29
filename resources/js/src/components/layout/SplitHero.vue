@@ -4,32 +4,44 @@
     <!-- Hero Layout Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center min-h-[560px] py-10">
       
-      <!-- Right Side: Text & Actions -->
-      <div class="lg:col-span-7 space-y-7 text-right animate-slide-right">
+      <!-- Right/Left Side: Text & Actions -->
+      <div class="lg:col-span-7 space-y-7 animate-slide-right" :class="locale === 'ar' ? 'text-right' : 'text-left'">
         
         <!-- Premium Badge -->
         <div class="inline-flex items-center gap-2.5 px-4 py-2 bg-dark-card border border-dark-border rounded-full select-none">
           <span class="flex h-2 w-2 rounded-full bg-vibrant-purple animate-pulse shrink-0"></span>
           <span class="font-mono text-[11px] font-semibold text-slate-300 tracking-widest uppercase">
-            REMOTELLY AGENCY • SAAS SOLUTIONS
+            {{ t('hero_badge') }}
           </span>
         </div>
 
         <!-- Headline — منصة ريموتلي السحابية -->
-        <h1 class="hero-headline text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] text-white tracking-normal font-extrabold leading-[1.3] text-right">
-          منصة
-          <span class="relative inline-block">
-            <span class="bg-gradient-to-l from-vibrant-cyan via-vibrant-purple to-primary-200 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(168,85,247,0.3)] font-black">
-              ريـمـوتـلـي
+        <h1 class="hero-headline text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] text-white tracking-normal font-extrabold leading-[1.3]" :class="locale === 'ar' ? 'text-right' : 'text-left'">
+          <template v-if="locale === 'ar'">
+            منصة
+            <span class="relative inline-block">
+              <span class="bg-gradient-to-l from-vibrant-cyan via-vibrant-purple to-primary-200 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(168,85,247,0.3)] font-black">
+                ريـمـوتـلـي
+              </span>
             </span>
-          </span>
-          <br />
-          <span class="text-slate-200 font-extrabold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.5rem]">للأنظمة السحابية وتطبيقات الجوال</span>
+            <br />
+            <span class="text-slate-200 font-extrabold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.5rem]">للأنظمة السحابية وتطبيقات الجوال</span>
+          </template>
+          <template v-else>
+            <span class="relative inline-block">
+              <span class="bg-gradient-to-l from-vibrant-cyan via-vibrant-purple to-primary-200 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(168,85,247,0.3)] font-black">
+                Remotelly
+              </span>
+            </span>
+            Platform
+            <br />
+            <span class="text-slate-200 font-extrabold text-[1.75rem] sm:text-[2.25rem] lg:text-[2.5rem]">For Cloud Systems & Mobile Apps</span>
+          </template>
         </h1>
 
         <!-- Subheading -->
-        <p class="font-body font-normal text-slate-300 text-base sm:text-lg leading-ar-relaxed max-w-2xl text-right">
-          شركة ريموتلي متخصصة في تطوير وتصميم البرمجيات السحابية المتكاملة (SaaS) وتطبيقات الهاتف الذكي (iOS & Android). نبتكر حلولاً رقمية ذكية ومخصصة لأتمتة أعمالك، وإدارة مبيعاتك، مخازنك، ومطاعمك من أي مكان بالعالم بأعلى معايير السرعة والأمان.
+        <p class="font-body font-normal text-slate-300 text-base sm:text-lg leading-ar-relaxed max-w-2xl" :class="locale === 'ar' ? 'text-right' : 'text-left'">
+          {{ t('hero_desc') }}
         </p>
 
         <!-- Benefit Checklist -->
@@ -38,6 +50,7 @@
             v-for="feat in features"
             :key="feat.label"
             class="flex items-center gap-3.5 bg-dark-card/60 border border-dark-border/70 p-4 rounded-2xl hover:border-vibrant-purple/30 transition-all duration-300"
+            :class="locale === 'ar' ? 'text-right' : 'text-left'"
           >
             <span
               :class="`w-9 h-9 rounded-xl ${feat.bg} flex items-center justify-center ${feat.color} text-base shrink-0`"
@@ -50,95 +63,110 @@
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 pt-2 justify-end">
+        <div class="flex flex-col sm:flex-row gap-4 pt-2" :class="locale === 'ar' ? 'justify-end' : 'justify-start'">
           <button
             @click="$emit('open-wizard')"
             class="bg-gradient-to-l from-primary-400 to-vibrant-purple text-white font-display font-bold py-3.5 px-8 rounded-2xl transition-all duration-300 shadow-neon-purple hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-sm text-center hover:shadow-[0_0_35px_rgba(168,85,247,0.45)]"
           >
-            ✨ احجز استشارتك المجانية الآن
+            ✨ {{ t('book_now') }}
           </button>
           
           <a
             href="#products"
             class="bg-dark-card hover:bg-dark-hover text-dark-text border border-dark-border font-display font-semibold py-3.5 px-7 rounded-2xl transition-all duration-300 text-center text-sm hover:-translate-y-0.5 active:translate-y-0"
           >
-            استعرض أنظمتنا
+            {{ t('explore_systems') }}
           </a>
         </div>
 
       </div>
 
-      <!-- Left Side: CSS Dashboard Mockup -->
-      <div class="lg:col-span-5 animate-slide-left relative flex items-center justify-center">
-        <!-- Glow Backing -->
-        <div class="absolute w-72 h-72 bg-vibrant-purple rounded-full blur-[110px] opacity-15 pointer-events-none"></div>
+      <!-- Left Side: Custom Animated Cloud & App Architecture -->
+      <div class="lg:col-span-5 animate-slide-left relative flex items-center justify-center w-full min-h-[440px] md:min-h-[500px]">
+        <!-- Aura Glows matching logo colors -->
+        <div class="absolute w-60 h-60 bg-primary-400 rounded-full blur-[120px] opacity-20 pointer-events-none top-1/4 right-1/4 animate-pulse duration-4000"></div>
+        <div class="absolute w-60 h-60 bg-vibrant-pink rounded-full blur-[120px] opacity-15 pointer-events-none bottom-1/4 left-1/4 animate-pulse duration-3000"></div>
 
-        <!-- Dashboard Card -->
-        <div class="relative bg-[#0e1018]/90 backdrop-blur-lg border border-dark-border p-6 rounded-3xl w-full max-w-[360px] shadow-premium space-y-5 select-none animate-float">
+        <!-- SVG Network Connections -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 400 400" fill="none">
+          <!-- Hub to Dashboard -->
+          <path d="M 200 200 Q 260 130 300 120" stroke="url(#line-grad-1)" stroke-width="2" stroke-dasharray="6,6" class="animate-dash" />
+          <!-- Hub to Mobile -->
+          <path d="M 200 200 Q 120 230 90 280" stroke="url(#line-grad-2)" stroke-width="2" stroke-dasharray="6,6" class="animate-dash" />
+          <!-- Hub to DB -->
+          <path d="M 200 200 Q 270 270 310 270" stroke="url(#line-grad-3)" stroke-width="2" stroke-dasharray="6,6" class="animate-dash" />
           
-          <!-- Window bar -->
-          <div class="flex items-center justify-between border-b border-dark-border/50 pb-3">
-            <div class="flex items-center gap-1.5">
-              <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
-            </div>
-            <span class="font-mono text-[10px] text-dark-muted uppercase tracking-widest">remotelly.dashboard</span>
-          </div>
+          <defs>
+            <linearGradient id="line-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#C06C47" />
+              <stop offset="100%" stop-color="#D49B4B" />
+            </linearGradient>
+            <linearGradient id="line-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#C06C47" />
+              <stop offset="100%" stop-color="#4E6B53" />
+            </linearGradient>
+            <linearGradient id="line-grad-3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#D49B4B" />
+              <stop offset="100%" stop-color="#4E6B53" />
+            </linearGradient>
+          </defs>
+        </svg>
 
-          <!-- Stats Row -->
-          <div class="grid grid-cols-2 gap-3">
-            <div class="bg-dark-bg border border-dark-border p-3.5 rounded-2xl text-right">
-              <span class="font-body text-[10px] text-dark-muted block mb-1">مبيعات اليوم</span>
-              <span class="font-mono text-base font-bold text-vibrant-cyan block">2,490 ج</span>
-            </div>
-            <div class="bg-dark-bg border border-dark-border p-3.5 rounded-2xl text-right">
-              <span class="font-body text-[10px] text-dark-muted block mb-1">الحركات</span>
-              <span class="font-mono text-base font-bold text-vibrant-purple block">+142 حركة</span>
-            </div>
-          </div>
+        <!-- 1. Central SaaS Cloud Hub (Slow Pulse) -->
+        <div class="absolute z-20 w-32 h-32 rounded-full bg-[#141311]/90 backdrop-blur-md border-2 border-primary-400/40 flex flex-col items-center justify-center shadow-neon-purple animate-pulse duration-[3000ms]">
+          <span class="text-3xl select-none filter drop-shadow-[0_0_8px_rgba(192,108,71,0.5)]">☁️</span>
+          <span class="text-[9px] font-mono text-primary-400 font-bold uppercase tracking-wider mt-1.5">Remotelly SaaS</span>
+          <span class="text-[8px] text-dark-muted font-bold">Cloud Core</span>
+        </div>
 
-          <!-- Bar Chart -->
-          <div class="bg-dark-bg border border-dark-border p-4 rounded-2xl space-y-2.5">
-            <div class="flex items-center justify-between">
-              <span class="font-body text-[10px] text-slate-300 font-semibold">نمو الأداء الأسبوعي</span>
-              <span class="font-mono text-[10px] text-vibrant-teal font-bold">+24%</span>
+        <!-- 2. Orbiting Node: Web Dashboard (Floats) -->
+        <div class="absolute z-10 top-6 right-2 bg-[#141311]/95 backdrop-blur-md border border-dark-border p-4 rounded-2xl w-48 shadow-card select-none animate-float" style="animation-duration: 5s">
+          <div class="flex items-center justify-between border-b border-dark-border/40 pb-2 mb-2">
+            <div class="flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
             </div>
-            <div class="h-16 flex items-end justify-between gap-1.5">
-              <div class="bg-dark-hover w-full rounded h-[35%]"></div>
-              <div class="bg-dark-hover w-full rounded h-[60%]"></div>
-              <div class="bg-gradient-to-t from-primary-400 to-vibrant-purple w-full rounded h-[82%] shadow-neon-purple"></div>
-              <div class="bg-dark-hover w-full rounded h-[48%]"></div>
-              <div class="bg-gradient-to-t from-vibrant-blue to-vibrant-cyan w-full rounded h-[95%] shadow-neon-cyan"></div>
-              <div class="bg-dark-hover w-full rounded h-[55%]"></div>
-            </div>
+            <span class="font-mono text-[8px] text-dark-muted">Web Admin</span>
           </div>
-
-          <!-- Activity Log -->
-          <div class="space-y-2">
-            <span class="font-body text-[10px] text-dark-muted block">آخر حركة للأنظمة:</span>
-            <div class="flex items-center justify-between bg-dark-bg/70 border border-dark-border/50 p-2.5 rounded-xl">
-              <div class="flex items-center gap-2">
-                <span>📦</span>
-                <span class="font-body font-semibold text-[11px] text-white">تعديل كمية المخزون</span>
+          <div class="space-y-1.5 text-right">
+            <div class="h-2.5 bg-dark-hover rounded w-3/4 mr-auto"></div>
+            <div class="flex items-center justify-between pt-1">
+              <div class="w-16 h-4 bg-primary-400/10 border border-primary-400/20 rounded flex items-center justify-center">
+                <span class="text-[8px] font-mono font-bold text-primary-400">92,450 ج</span>
               </div>
-              <span class="font-mono text-[10px] text-dark-muted">منذ دقيقة</span>
-            </div>
-            <div class="flex items-center justify-between bg-dark-bg/70 border border-dark-border/50 p-2.5 rounded-xl">
-              <div class="flex items-center gap-2">
-                <span>🧾</span>
-                <span class="font-body font-semibold text-[11px] text-white">فاتورة مبيعات جديدة</span>
-              </div>
-              <span class="font-mono text-[10px] text-dark-muted">منذ 3 دقائق</span>
+              <div class="w-12 h-2 bg-dark-hover rounded"></div>
             </div>
           </div>
+        </div>
 
-          <!-- Live Badge -->
-          <div class="flex items-center justify-center gap-2 bg-vibrant-purple/5 border border-vibrant-purple/20 rounded-xl p-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-vibrant-purple animate-pulse"></span>
-            <span class="font-mono text-[10px] text-vibrant-purple font-semibold tracking-wider">LIVE SYSTEM • ONLINE</span>
+        <!-- 3. Orbiting Node: Mobile App (Floats out of sync) -->
+        <div class="absolute z-10 bottom-4 left-2 bg-[#141311]/95 backdrop-blur-md border border-dark-border p-3.5 rounded-[22px] w-28 h-44 shadow-card select-none animate-float" style="animation-duration: 6s">
+          <!-- Mobile Screen Frame -->
+          <div class="w-full h-full rounded-2xl border border-dark-border bg-dark-bg/60 p-2 flex flex-col justify-between">
+            <div class="flex items-center justify-between border-b border-dark-border/40 pb-1 mb-1">
+              <span class="text-[6px] font-mono text-dark-muted">12:00</span>
+              <span class="text-[6px] text-dark-muted">🔋</span>
+            </div>
+            <!-- Notification Badge -->
+            <div class="bg-primary-400/20 border border-primary-400/30 p-1.5 rounded-lg text-right space-y-1">
+              <span class="text-[7px] text-primary-400 font-bold block leading-none">تفعيل الكاشير</span>
+              <span class="text-[6px] text-dark-text block leading-none">جاهز للعمل 📦</span>
+            </div>
+            <div class="h-10 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center">
+              <span class="text-[12px]">📱</span>
+            </div>
           </div>
+        </div>
 
+        <!-- 4. Orbiting Node: Database Cylinder (Floats) -->
+        <div class="absolute z-10 bottom-6 right-6 bg-[#141311]/95 backdrop-blur-md border border-dark-border p-3 rounded-2xl w-24 h-24 flex flex-col items-center justify-center shadow-card select-none animate-float" style="animation-duration: 4.5s">
+          <span class="text-xl">💾</span>
+          <span class="text-[9px] font-bold text-white mt-1">الربط الآمن</span>
+          <div class="flex gap-0.5 mt-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-vibrant-teal animate-ping"></span>
+            <span class="text-[7px] text-vibrant-teal font-mono">Syncing</span>
+          </div>
         </div>
       </div>
 
@@ -147,36 +175,44 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { locale } from '../../utils/locale'
+import { translations } from '../../utils/translations'
+
 defineEmits(['open-wizard'])
 
-const features = [
+function t(key) {
+  return translations[locale.value][key] || key
+}
+
+const features = computed(() => [
   {
     icon: '⚡',
-    label: 'تفعيل فوري',
-    sub: 'جاهز للعمل خلال 24 ساعة',
+    label: t('feat_1_title'),
+    sub: t('feat_1_sub'),
     bg: 'bg-vibrant-purple/10',
     color: 'text-vibrant-purple',
   },
   {
     icon: '🛡️',
-    label: 'أمان كامل للبيانات',
-    sub: 'نسخ احتياطي سحابي تلقائي',
+    label: t('feat_2_title'),
+    sub: t('feat_2_sub'),
     bg: 'bg-vibrant-cyan/10',
     color: 'text-vibrant-cyan',
   },
   {
     icon: '🤝',
-    label: 'جلسة استشارية مجانية',
-    sub: 'نناقش فكرتك أونلاين',
+    label: t('feat_3_title'),
+    sub: t('feat_3_sub'),
     bg: 'bg-vibrant-teal/10',
     color: 'text-vibrant-teal',
   },
   {
     icon: '🛠️',
-    label: 'دعم فني متكامل',
-    sub: 'تحديثات دورية وصيانة مستمرة',
+    label: t('feat_4_title'),
+    sub: t('feat_4_sub'),
     bg: 'bg-vibrant-pink/10',
     color: 'text-vibrant-pink',
   },
-]
+])
 </script>

@@ -4,7 +4,7 @@
    ===================================================================== */
 
 /* --- Google Fonts: Best Arabic fonts for professional UI --- */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Reem+Kufi:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Reem+Kufi:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,30 +14,31 @@
    Root Variables
    ===================================================================== */
 :root {
-  direction: rtl;
   scroll-behavior: smooth;
 
   /* Typography Scale */
-  --font-display: 'Cairo', 'Reem Kufi', system-ui, sans-serif;
-  --font-body:    'Reem Kufi', 'Cairo', system-ui, sans-serif;
-  --font-mono:    'IBM Plex Mono', monospace;
+  --font-display-ar: 'Cairo', system-ui, sans-serif;
+  --font-body-ar:    'Cairo', system-ui, sans-serif;
+  --font-display-en: 'Instrument Sans', system-ui, sans-serif;
+  --font-body-en:    'Instrument Sans', system-ui, sans-serif;
+  --font-mono:       'IBM Plex Mono', monospace;
 
-  /* Brand Colors */
-  --color-primary-50:  #FDF8FC;
-  --color-primary-100: #F5E6F2;
-  --color-primary-200: #EABBE0;
-  --color-primary-400: #714B67;
-  --color-primary-600: #5C3D54;
-  --color-primary-800: #432B3C;
-  --color-primary-900: #2A1A26;
+  /* Brand Colors — Warm Rust (from Logo) */
+  --color-primary-50:  #FAF8F5;
+  --color-primary-100: #FBEFEA;
+  --color-primary-200: #F5D7C9;
+  --color-primary-400: #C06C47;
+  --color-primary-600: #A15431;
+  --color-primary-800: #773D22;
+  --color-primary-900: #4B2412;
 
-  /* Dark Palette */
-  --color-dark-bg:     #08090C;
-  --color-dark-card:   #0F111A;
-  --color-dark-hover:  #171A26;
-  --color-dark-border: #1D2132;
-  --color-dark-text:   #E2E8F0;
-  --color-dark-muted:  #64748B;
+  /* Dark Palette — Warm clay theme */
+  --color-dark-bg:     #0C0B0A;
+  --color-dark-card:   #141311;
+  --color-dark-hover:  #1C1B18;
+  --color-dark-border: #262420;
+  --color-dark-text:   #FAF8F5;
+  --color-dark-muted:  #908980;
 }
 
 /* =====================================================================
@@ -50,30 +51,51 @@
     text-rendering: optimizeLegibility;
   }
 
+  body.font-ar {
+    font-family: var(--font-body-ar);
+    direction: rtl;
+  }
+  body.font-en {
+    font-family: var(--font-body-en);
+    direction: ltr;
+  }
+
   body {
-    font-family: var(--font-body);
     font-size: 16px;
-    line-height: 1.75;
+    line-height: 1.8; /* Sightly looser line height for better legibility */
     font-weight: 400;
-    letter-spacing: 0;
   }
 
-  /* Arabic text fundamentally should NOT have letter-spacing */
-  [lang="ar"], .font-ar, p, h1, h2, h3, h4, h5, h6 {
+  /* Force zero letter-spacing and clean word-spacing for all Arabic text elements */
+  .font-ar,
+  .font-ar *,
+  [dir="rtl"],
+  [dir="rtl"] * {
     letter-spacing: 0 !important;
+    word-spacing: 0.5px !important;
   }
 
-  /* Headings: Cairo Bold is crystal clear and tight for modern Arabic web design */
-  h1, h2, h3 {
-    font-family: var(--font-display);
+  /* Headings: Cairo Bold or Instrument Sans Bold */
+  .font-ar h1, .font-ar h2, .font-ar h3 {
+    font-family: var(--font-display-ar);
     font-weight: 800; /* Extra Bold */
     line-height: 1.45;
   }
+  .font-en h1, .font-en h2, .font-en h3 {
+    font-family: var(--font-display-en);
+    font-weight: 800; /* Extra Bold */
+    line-height: 1.3;
+  }
 
-  h4, h5, h6 {
-    font-family: var(--font-display);
+  .font-ar h4, .font-ar h5, .font-ar h6 {
+    font-family: var(--font-display-ar);
     font-weight: 700; /* Bold */
     line-height: 1.4;
+  }
+  .font-en h4, .font-en h5, .font-en h6 {
+    font-family: var(--font-display-en);
+    font-weight: 700; /* Bold */
+    line-height: 1.35;
   }
 
   b, strong {
@@ -117,9 +139,9 @@
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Gradient Text Helper */
+/* Gradient Text Helper — Logo Siena Gradient */
 .text-gradient-purple {
-  background: linear-gradient(135deg, #EABBE0, #A855F7, #06B6D4);
+  background: linear-gradient(135deg, #FAF8F5, #C06C47, #D49B4B);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -159,4 +181,14 @@
 .logo-img {
   filter: invert(0.95) contrast(1.1) brightness(1.1);
   mix-blend-mode: screen;
+}
+
+/* Animated Dash effect for SVG connections */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+.animate-dash {
+  animation: dash 3s linear infinite;
 }
