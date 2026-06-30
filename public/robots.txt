@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://remotelly1.site/sitemap.xml
