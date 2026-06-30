@@ -15,30 +15,39 @@
           </span>
         </div>
 
-        <!-- Large Stacked Brand Logo & Tagline (Integrated Headline) - Flush-right for RTL / Flush-left for LTR -->
-        <div class="flex" :class="locale === 'ar' ? 'justify-end' : 'justify-start'">
-          <BrandLogo3D size="large" />
-        </div>
+        <!-- Headline — امتلك نظامك السحابي الذكي وأدر أعمالك بكفاءة -->
+        <h1 class="hero-headline text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] text-white tracking-normal font-black leading-[1.25] mb-4" :class="locale === 'ar' ? 'text-right' : 'text-left'">
+          <template v-if="locale === 'ar'">
+            <span class="bg-gradient-to-r from-primary-400 to-[#00C6FF] bg-clip-text text-transparent">{{ t('hero_title_brand') }}</span>
+            <span class="bg-gradient-to-r from-[#00C6FF] to-primary-400 bg-clip-text text-transparent mx-2">{{ t('hero_title_1') }}</span>
+            <span class="text-slate-200 block sm:inline">{{ t('hero_title_2') }}</span>
+          </template>
+          <template v-else>
+            <span class="bg-gradient-to-r from-primary-400 to-[#00C6FF] bg-clip-text text-transparent">Own Your Smart</span>
+            <span class="bg-gradient-to-r from-[#00C6FF] to-primary-400 bg-clip-text text-transparent mx-2">Cloud System</span>
+            <span class="text-slate-200 block sm:inline">and Manage Business Efficiently</span>
+          </template>
+        </h1>
 
         <!-- Subheading -->
         <p class="font-body font-normal text-slate-300 text-base sm:text-lg leading-ar-relaxed max-w-2xl" :class="locale === 'ar' ? 'text-right' : 'text-left'">
           {{ t('hero_desc') }}
         </p>
 
-        <!-- Benefit Checklist -->
+        <!-- Benefit Checklist (Sleek Glassmorphic Cards with Micro-interactions) -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div
             v-for="feat in features"
             :key="feat.label"
-            class="flex items-center gap-3.5 bg-dark-card/50 border border-dark-border/50 p-4.5 rounded-2xl hover:border-primary-400/30 transition-all duration-300"
+            class="flex items-center gap-3.5 bg-dark-card/65 backdrop-blur-md border border-dark-border/60 hover:border-primary-400/40 p-4.5 rounded-2xl hover:shadow-[0_0_25px_rgba(30,144,255,0.06)] hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
             :class="locale === 'ar' ? 'text-right' : 'text-left'"
           >
             <span
-              :class="`w-9 h-9 rounded-xl ${feat.bg} flex items-center justify-center ${feat.color} shrink-0`"
+              :class="`w-9 h-9 rounded-xl ${feat.bg} flex items-center justify-center ${feat.color} shrink-0 group-hover:scale-105 transition-transform duration-300`"
               v-html="feat.icon"
             ></span>
             <div>
-              <span class="font-display font-bold text-sm text-white block leading-snug">{{ feat.label }}</span>
+              <span class="font-display font-bold text-sm text-white block leading-snug group-hover:text-primary-400 transition-colors duration-300">{{ feat.label }}</span>
               <span class="font-body font-normal text-xs text-dark-muted block mt-0.5 leading-snug">{{ feat.sub }}</span>
             </div>
           </div>
@@ -65,12 +74,15 @@
 
       <!-- Left Side: Custom Animated Cloud & App Architecture -->
       <div class="lg:col-span-5 animate-slide-left relative flex items-center justify-center w-full min-h-[460px]">
+        <!-- Subtle Grid Pattern Background with Radial Fade -->
+        <div class="absolute inset-0 grid-pattern opacity-[0.14] [mask-image:radial-gradient(circle_at_center,black_40%,transparent_75%)] pointer-events-none z-0"></div>
+
         <!-- Aura Glows matching sky-blue / cyan brand colors -->
-        <div class="absolute w-72 h-72 bg-[#00C6FF]/10 rounded-full blur-[120px] pointer-events-none top-1/4 right-1/4 animate-pulse duration-4000"></div>
-        <div class="absolute w-72 h-72 bg-[#1E90FF]/8 rounded-full blur-[120px] pointer-events-none bottom-1/4 left-1/4 animate-pulse duration-3000"></div>
+        <div class="absolute w-72 h-72 bg-[#00C6FF]/10 rounded-full blur-[120px] pointer-events-none top-1/4 right-1/4 animate-pulse duration-4000 z-0"></div>
+        <div class="absolute w-72 h-72 bg-[#1E90FF]/8 rounded-full blur-[120px] pointer-events-none bottom-1/4 left-1/4 animate-pulse duration-3000 z-0"></div>
 
         <!-- Cohesive Floating Composition Container -->
-        <div class="relative w-full h-[400px] flex items-center justify-center animate-float-slow">
+        <div class="relative w-full h-[400px] flex items-center justify-center animate-float-slow z-10">
           
           <!-- SVG Network Connections (Sky Blue Gradients) -->
           <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 400 400" fill="none">
@@ -227,5 +239,11 @@ const features = computed(() => [
 }
 .animate-float-slow {
   animation: floatSlow 7s ease-in-out infinite;
+}
+.grid-pattern {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(30, 198, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 198, 255, 0.08) 1px, transparent 1px);
 }
 </style>
