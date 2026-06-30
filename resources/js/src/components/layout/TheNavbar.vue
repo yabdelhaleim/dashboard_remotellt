@@ -5,34 +5,32 @@
         
         <!-- Logo -->
         <router-link to="/" class="flex items-center gap-2 group shrink-0">
-          <div class="bg-[#FAF8F5] px-4 py-2 rounded-xl flex items-center justify-center border border-dark-border/20 shadow-sm transition-all duration-300 group-hover:border-primary-400/40">
-            <img :src="'/logo.png'" alt="Remotelly" class="h-6 w-auto object-contain" />
-          </div>
+          <BrandLogo3D />
         </router-link>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center gap-7">
           <router-link
             to="/"
-            class="font-display font-semibold text-sm text-slate-200 hover:text-vibrant-purple transition-all duration-300 relative after:absolute after:bottom-[-2px] after:right-0 after:w-0 after:h-[2px] after:bg-vibrant-purple after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+            class="font-display font-semibold text-sm text-slate-200 hover:text-primary-400 transition-all duration-300 relative after:absolute after:bottom-[-2px] after:right-0 after:w-0 after:h-[2px] after:bg-primary-400 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
           >
             {{ t('home') }}
           </router-link>
           <a
             href="/#products"
-            class="font-display font-semibold text-sm text-slate-200 hover:text-vibrant-purple transition-all duration-300 relative after:absolute after:bottom-[-2px] after:right-0 after:w-0 after:h-[2px] after:bg-vibrant-purple after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+            class="font-display font-semibold text-sm text-slate-200 hover:text-primary-400 transition-all duration-300 relative after:absolute after:bottom-[-2px] after:right-0 after:w-0 after:h-[2px] after:bg-primary-400 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
           >
             {{ t('solutions') }}
           </a>
           <a
             href="/#how-it-works"
-            class="font-display font-semibold text-sm text-slate-200 hover:text-vibrant-purple transition-all duration-300 relative after:absolute after:bottom-[-2px] after:right-0 after:w-0 after:h-[2px] after:bg-vibrant-purple after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+            class="font-display font-semibold text-sm text-slate-200 hover:text-primary-400 transition-all duration-300 relative after:absolute after:bottom-[-2px] after:right-0 after:w-0 after:h-[2px] after:bg-primary-400 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
           >
             {{ t('how_works') }}
           </a>
           <router-link
             to="/support"
-            class="font-display font-semibold text-sm text-slate-200 hover:text-vibrant-purple transition-all duration-300 relative after:absolute after:bottom-[-2px] after:right-0 after:w-0 after:h-[2px] after:bg-vibrant-purple after:rounded-full hover:after:w-full after:transition-all after:duration-300"
+            class="font-display font-semibold text-sm text-slate-200 hover:text-primary-400 transition-all duration-300 relative after:absolute after:bottom-[-2px] after:right-0 after:w-0 after:h-[2px] after:bg-primary-400 after:rounded-full hover:after:w-full after:transition-all after:duration-300"
           >
             {{ t('support') }}
           </router-link>
@@ -56,7 +54,7 @@
           
           <button
             @click="$emit('open-wizard')"
-            class="bg-gradient-to-l from-primary-400 to-vibrant-purple hover:opacity-90 text-white font-display font-bold text-sm py-2.5 px-6 rounded-xl shadow-neon-purple/20 transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            class="bg-gradient-to-l from-primary-400 to-vibrant-pink hover:scale-[1.02] hover:-translate-y-0.5 active:translate-y-0 text-white font-display font-bold text-sm py-2.5 px-6 rounded-xl shadow-neon-cyan/20 transition-all duration-300 cursor-pointer"
           >
             {{ t('book_consultation') }}
           </button>
@@ -102,7 +100,7 @@
           <div class="pt-3 px-0">
             <button
               @click="triggerMobileWizard"
-              class="block w-full text-center bg-gradient-to-l from-primary-400 to-vibrant-purple text-white font-display font-bold text-sm py-3.5 rounded-xl transition-all cursor-pointer shadow-neon-purple/20"
+              class="block w-full text-center bg-gradient-to-l from-primary-400 to-vibrant-pink text-white font-display font-bold text-sm py-3.5 rounded-xl transition-all cursor-pointer shadow-neon-cyan/20"
             >
               {{ t('book_consultation') }}
             </button>
@@ -117,6 +115,7 @@
 import { ref } from 'vue'
 import { locale, toggleLocale } from '../../utils/locale'
 import { translations } from '../../utils/translations'
+import BrandLogo3D from './BrandLogo3D.vue'
 
 const emit = defineEmits(['open-wizard'])
 const isOpen = ref(false)

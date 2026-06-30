@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#0066ff" />
+    </linearGradient>
+    
+    <!-- Character Definitions -->
+    <!-- Char R -->
+    <g id="char-R">
+      <path d="M 35 40 L 48 40 L 75 100 L 58 100 Z" fill="url(#blue-grad)" />
+      <path d="M 0 0 L 45 0 C 65 0 75 10 75 25 C 75 40 65 50 45 50 L 45 100 L 30 100 Q 20 100 20 90 L 20 20 Q 20 5 0 0 Z M 45 15 L 45 35 C 55 35 60 30 60 25 C 60 20 55 15 45 15 Z" fill="#0c1829" />
+    </g>
+    
+    <!-- Char E -->
+    <g id="char-E">
+      <path d="M 0 0 L 70 0 L 70 15 L 20 15 L 20 42 L 55 42 L 55 58 L 20 58 L 20 85 L 70 85 L 70 100 L 30 100 Q 20 100 20 90 L 20 20 Q 20 5 0 0 Z" fill="#0c1829" />
+    </g>
+    
+    <!-- Char M -->
+    <g id="char-M">
+      <path d="M 0 0 L 18 0 L 42.5 55 L 67 0 L 85 0 L 85 100 L 70 100 L 70 25 L 42.5 75 L 15 25 L 15 100 L 0 100 Z" fill="#0c1829" />
+    </g>
+    
+    <!-- Char O -->
+    <g id="char-O">
+      <path d="M 25 0 L 50 0 C 65 0 75 15 75 35 L 75 65 C 75 85 65 100 50 100 L 25 100 C 10 100 0 85 0 65 L 0 35 C 0 15 10 0 25 0 Z M 25 15 C 18 15 15 22 15 35 L 15 65 C 15 78 18 85 25 85 L 50 85 C 57 85 60 78 60 65 L 60 35 C 60 22 57 15 50 15 Z" fill="#0c1829" fill-rule="evenodd" />
+    </g>
+    
+    <!-- Char T -->
+    <g id="char-T">
+      <path d="M 0 0 L 75 0 L 75 15 L 45 15 L 45 100 L 30 100 L 30 15 L 0 15 Z" fill="#0c1829" />
+    </g>
+    
+    <!-- Char L -->
+    <g id="char-L">
+      <path d="M 0 0 L 15 0 L 15 85 L 65 85 L 65 100 L 0 100 Z" fill="#0c1829" />
+    </g>
+    
+    <!-- Char Y -->
+    <g id="char-Y">
+      <path d="M 75 0 L 60 0 L 37.5 35 L 52.5 35 Z" fill="url(#blue-grad)" />
+      <path d="M 0 0 L 15 0 L 30 35 L 30 100 L 45 100 L 45 35 Z" fill="#0c1829" />
+    </g>
+  </defs>
+
+  <!-- Icon (R Symbol with Waves) -->
+  <g transform="translate(410, 60) scale(2.2)">
+    <!-- Blue diagonal leg -->
+    <path d="M 35 40 L 48 40 L 75 100 L 58 100 Z" fill="url(#blue-grad)" />
+    <!-- Dark Navy stem and loop -->
+    <path d="M 0 0 L 45 0 C 65 0 75 10 75 25 C 75 40 65 50 45 50 L 45 100 L 30 100 Q 20 100 20 90 L 20 20 Q 20 5 0 0 Z M 45 15 L 45 35 C 55 35 60 30 60 25 C 60 20 55 15 45 15 Z" fill="#0c1829" />
+    <!-- Waves (Cyan/Blue) -->
+    <circle cx="95" cy="18" r="7" fill="url(#blue-grad)" />
+    <path d="M 92 -8 A 26 26 0 0 1 121 21" fill="none" stroke="url(#blue-grad)" stroke-width="7" stroke-linecap="round" />
+    <path d="M 90 -30 A 48 48 0 0 1 143 23" fill="none" stroke="url(#blue-grad)" stroke-width="7" stroke-linecap="round" />
+  </g>
+
+  <!-- Wordmark REMOTELLY -->
+  <g transform="translate(92.5, 420)">
+    <use href="#char-R" x="0" />
+    <use href="#char-E" x="95" />
+    <use href="#char-M" x="185" />
+    <use href="#char-O" x="290" />
+    <use href="#char-T" x="385" />
+    <use href="#char-E" x="480" />
+    <use href="#char-L" x="570" />
+    <use href="#char-L" x="655" />
+    <use href="#char-Y" x="740" />
+  </g>
+  
+  <!-- Divider -->
+  <g transform="translate(0, 560)">
+    <line x1="250" y1="0" x2="440" y2="0" stroke="url(#blue-grad)" stroke-width="2" />
+    <circle cx="475" cy="0" r="3" fill="url(#blue-grad)" />
+    <circle cx="500" cy="0" r="4" fill="url(#blue-grad)" />
+    <circle cx="515" cy="0" r="3" fill="url(#blue-grad)" />
+    <line x1="550" y1="0" x2="740" y2="0" stroke="url(#blue-grad)" stroke-width="2" />
+  </g>
+
+  <!-- Subtext -->
+  <text x="500" y="615" font-family="'Outfit', 'Instrument Sans', sans-serif" font-size="15" font-weight="900" fill="#4b5563" letter-spacing="0.45em" text-anchor="middle">MOBILE APP &amp; CLOUD SYSTEM</text>
+</svg>

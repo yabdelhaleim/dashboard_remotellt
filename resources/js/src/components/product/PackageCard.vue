@@ -3,14 +3,14 @@
     :class="[
       'bg-dark-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between border transition-all duration-300 relative text-right hover:shadow-lg',
       highlighted 
-        ? 'border-2 border-vibrant-purple shadow-neon-purple scale-102 z-10' 
+        ? 'border-2 border-vibrant-purple shadow-neon-cyan scale-102 z-10' 
         : 'border-dark-border'
     ]"
   >
     <!-- Featured Badge -->
     <div 
       v-if="highlighted" 
-      class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary-400 to-vibrant-purple text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider font-mono shadow-sm"
+      class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-primary-400 to-vibrant-pink text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider font-mono shadow-sm"
     >
       الأكثر طلباً ★
     </div>
@@ -43,7 +43,7 @@
       :class="[
         'w-full font-body font-bold py-3.5 px-6 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-xs',
         highlighted 
-          ? 'bg-gradient-to-r from-primary-400 to-vibrant-purple text-white shadow-neon-purple/20' 
+          ? 'bg-gradient-to-r from-primary-400 to-vibrant-pink text-white shadow-neon-cyan/20' 
           : 'bg-dark-bg hover:bg-dark-hover text-dark-text border border-dark-border'
       ]"
     >

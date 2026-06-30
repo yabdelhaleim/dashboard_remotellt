@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#0066ff" />
+    </linearGradient>
+  </defs>
+  
+  <g transform="translate(130, 110) scale(2.4)">
+    <!-- Blue diagonal leg -->
+    <path d="M 35 40 L 48 40 L 75 100 L 58 100 Z" fill="url(#blue-grad)" />
+    <!-- Dark Navy stem and loop -->
+    <path d="M 0 0 L 45 0 C 65 0 75 10 75 25 C 75 40 65 50 45 50 L 45 100 L 30 100 Q 20 100 20 90 L 20 20 Q 20 5 0 0 Z M 45 15 L 45 35 C 55 35 60 30 60 25 C 60 20 55 15 45 15 Z" fill="#ffffff" />
+    <!-- Waves (Cyan/Blue) -->
+    <circle cx="95" cy="18" r="7" fill="url(#blue-grad)" />
+    <path d="M 92 -8 A 26 26 0 0 1 121 21" fill="none" stroke="url(#blue-grad)" stroke-width="7" stroke-linecap="round" />
+    <path d="M 90 -30 A 48 48 0 0 1 143 23" fill="none" stroke="url(#blue-grad)" stroke-width="7" stroke-linecap="round" />
+  </g>
+</svg>

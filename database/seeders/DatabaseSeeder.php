@@ -15,10 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Admin User',
-            'email' => 'admin@remotelly.com',
-        ]);
+        if (!User::where('email', 'admin@remotelly.com')->exists()) {
+            User::factory()->create([
+                'name' => 'Admin User',
+                'email' => 'admin@remotelly.com',
+            ]);
+        }
 
         $this->call(RemotellySeed::class);
     }

@@ -22,7 +22,7 @@
       <div class="flex flex-col sm:flex-row gap-4 justify-center pt-2">
         <button
           @click="$emit('open-wizard')"
-          class="bg-gradient-to-l from-primary-400 to-vibrant-purple text-white font-display font-bold py-4 px-10 rounded-2xl transition-all duration-300 shadow-neon-purple hover:shadow-[0_0_40px_rgba(168,85,247,0.5)] hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 text-sm sm:text-base cursor-pointer"
+          class="bg-gradient-to-l from-primary-400 to-vibrant-pink text-white font-display font-bold py-4 px-10 rounded-2xl transition-all duration-300 shadow-neon-cyan hover:shadow-[0_0_40px_rgba(0,198,255,0.45)] hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0 flex items-center justify-center gap-2.5 text-sm sm:text-base cursor-pointer"
         >
           <span>✨</span>
           <span>{{ t('book_now') }}</span>

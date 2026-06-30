@@ -40,7 +40,7 @@
       <a 
         v-if="product.externalUrl"
         :href="product.externalUrl"
-        class="inline-flex items-center gap-1.5 font-display font-bold text-sm text-vibrant-blue hover:text-blue-400 transition-colors duration-300"
+        class="inline-flex items-center gap-1.5 font-display font-bold text-sm text-primary-400 hover:text-[#00C6FF] transition-colors duration-300"
       >
         <span>{{ t('open_packages') }}</span>
         <span class="transition-transform duration-300 font-bold" :class="locale === 'ar' ? 'group-hover:translate-x-[-3px]' : 'group-hover:translate-x-[3px]'">{{ locale === 'ar' ? '←' : '→' }}</span>
@@ -50,7 +50,7 @@
       <router-link 
         v-else
         :to="'/product/' + product.slug" 
-        class="inline-flex items-center gap-1.5 font-display font-bold text-sm text-vibrant-purple hover:text-purple-400 transition-colors duration-300"
+        class="inline-flex items-center gap-1.5 font-display font-bold text-sm text-primary-400 hover:text-[#00C6FF] transition-colors duration-300"
       >
         <span>{{ t('show_features') }}</span>
         <span class="transition-transform duration-300 font-bold" :class="locale === 'ar' ? 'group-hover:translate-x-[-3px]' : 'group-hover:translate-x-[3px]'">{{ locale === 'ar' ? '←' : '→' }}</span>

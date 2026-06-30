@@ -27,7 +27,7 @@
             <div class="absolute inset-0 top-1/2 -translate-y-1/2 h-[3px] bg-dark-border -z-10 rounded-full"></div>
             <!-- Glowing active progress bar -->
             <div 
-              class="absolute inset-0 top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-primary-400 to-vibrant-purple -z-10 transition-all duration-500 rounded-full shadow-neon-purple"
+              class="absolute inset-0 top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-primary-400 to-vibrant-pink -z-10 transition-all duration-500 rounded-full shadow-neon-cyan"
               :style="{ width: progressPercent + '%' }"
             ></div>
 
@@ -41,7 +41,7 @@
                 :class="[
                   'w-9 h-9 rounded-full flex items-center justify-center font-mono font-bold transition-premium border-2',
                   step === stepNum 
-                    ? 'bg-gradient-to-r from-primary-400 to-vibrant-purple text-white border-transparent shadow-neon-purple scale-110'
+                    ? 'bg-gradient-to-r from-primary-400 to-vibrant-pink text-white border-transparent shadow-neon-cyan scale-110'
                     : step > stepNum
                     ? 'bg-primary-400 text-white border-transparent'
                     : 'bg-dark-bg text-dark-muted border-dark-border'
@@ -148,7 +148,7 @@
                 :class="[
                   'border rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-premium',
                   form.selectedProducts.includes(p.name)
-                    ? 'bg-primary-400/10 border-vibrant-purple shadow-neon-purple/10'
+                    ? 'bg-primary-400/10 border-vibrant-purple shadow-neon-cyan/10'
                     : 'bg-dark-bg/60 border-dark-border hover:border-dark-hover'
                 ]"
               >
@@ -164,7 +164,7 @@
                   :class="[
                     'w-5 h-5 rounded-lg border flex items-center justify-center transition-all',
                     form.selectedProducts.includes(p.name)
-                      ? 'bg-gradient-to-tr from-primary-400 to-vibrant-purple border-transparent text-white shadow-neon-purple/20'
+                      ? 'bg-gradient-to-tr from-primary-400 to-vibrant-pink border-transparent text-white shadow-neon-cyan/20'
                       : 'border-dark-border bg-dark-bg'
                   ]"
                 >
@@ -217,7 +217,7 @@
                   :class="[
                     'px-4 py-3.5 rounded-2xl border text-center transition-premium min-w-[100px] shrink-0 cursor-pointer',
                     form.meetingDate === d
-                      ? 'bg-gradient-to-tr from-primary-400 to-vibrant-purple text-white border-transparent shadow-neon-purple scale-[1.03]'
+                      ? 'bg-gradient-to-tr from-primary-400 to-vibrant-pink text-white border-transparent shadow-neon-cyan scale-[1.03]'
                       : 'bg-dark-bg/60 border-dark-border hover:border-dark-hover text-dark-muted'
                   ]"
                 >
@@ -311,7 +311,7 @@
           <button 
             v-if="step < 3"
             @click="nextStep"
-            class="bg-gradient-to-r from-primary-400 to-vibrant-purple text-white text-xs font-bold py-3.5 px-8 rounded-2xl transition-premium shadow-neon-purple/20 hover:shadow-neon-purple hover:-translate-y-0.5 cursor-pointer"
+            class="bg-gradient-to-r from-primary-400 to-vibrant-pink text-white text-xs font-bold py-3.5 px-8 rounded-2xl transition-premium shadow-neon-cyan/20 hover:shadow-neon-cyan hover:-translate-y-0.5 cursor-pointer"
           >
             التالي ←
           </button>
@@ -320,7 +320,7 @@
             v-else-if="step === 3"
             @click="confirmBooking"
             :disabled="!isStep3Valid || submitting"
-            class="bg-gradient-to-r from-primary-400 to-vibrant-purple disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold py-3.5 px-8 rounded-2xl transition-premium shadow-neon-purple/20 hover:shadow-neon-purple hover:-translate-y-0.5 cursor-pointer flex items-center gap-2"
+            class="bg-gradient-to-r from-primary-400 to-vibrant-pink disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold py-3.5 px-8 rounded-2xl transition-premium shadow-neon-cyan/20 hover:shadow-neon-cyan hover:-translate-y-0.5 cursor-pointer flex items-center gap-2"
           >
             <span v-if="submitting" class="animate-spin">⏳</span>
             <span>{{ submitting ? 'جاري التأكيد...' : 'تأكيد وإرسال الطلب 🎉' }}</span>

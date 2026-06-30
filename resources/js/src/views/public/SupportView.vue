@@ -3,7 +3,7 @@
     
     <!-- Floating background glow spots -->
     <div class="absolute top-[15%] left-[-10%] w-[500px] h-[500px] bg-primary-400/10 rounded-full blur-[180px] pointer-events-none"></div>
-    <div class="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-vibrant-purple/10 rounded-full blur-[200px] pointer-events-none"></div>
+    <div class="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-primary-400/10 rounded-full blur-[200px] pointer-events-none"></div>
 
     <!-- Navbar -->
     <TheNavbar />
@@ -13,7 +13,7 @@
       
       <!-- Back Link -->
       <div class="mb-8">
-        <router-link to="/" class="inline-flex items-center gap-1.5 text-xs text-dark-muted hover:text-vibrant-purple transition-colors duration-300">
+        <router-link to="/" class="inline-flex items-center gap-1.5 text-xs text-dark-muted hover:text-primary-400 transition-colors duration-300">
           <span>→</span>
           <span>العودة للرئيسية</span>
         </router-link>
@@ -21,7 +21,7 @@
 
       <!-- Header Section -->
       <div class="text-center mb-10">
-        <span class="px-3 py-1.5 bg-vibrant-purple/10 text-vibrant-purple border border-vibrant-purple/20 rounded-full text-xs font-mono font-bold tracking-wider uppercase">
+        <span class="px-3 py-1.5 bg-primary-400/10 text-primary-400 border border-primary-400/20 rounded-full text-xs font-mono font-bold tracking-wider uppercase">
           مركز المساعدة والدعم
         </span>
         <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-white mt-4 mb-3">الدعم الفني وطلبات التعديل</h1>
@@ -35,14 +35,14 @@
         <button 
           @click="activeTab = 'open'"
           class="flex-1 py-3 text-center rounded-lg font-display font-bold text-sm transition-all duration-300 cursor-pointer"
-          :class="activeTab === 'open' ? 'bg-gradient-to-l from-primary-400 to-vibrant-purple text-white shadow-neon-purple/15' : 'text-dark-muted hover:text-white'"
+          :class="activeTab === 'open' ? 'bg-gradient-to-l from-primary-400 to-vibrant-pink text-white shadow-neon-cyan/15' : 'text-dark-muted hover:text-white'"
         >
           📝 فتح تذكرة جديدة
         </button>
         <button 
           @click="activeTab = 'track'"
           class="flex-1 py-3 text-center rounded-lg font-display font-bold text-sm transition-all duration-300 cursor-pointer"
-          :class="activeTab === 'track' ? 'bg-gradient-to-l from-primary-400 to-vibrant-purple text-white shadow-neon-purple/15' : 'text-dark-muted hover:text-white'"
+          :class="activeTab === 'track' ? 'bg-gradient-to-l from-primary-400 to-vibrant-pink text-white shadow-neon-cyan/15' : 'text-dark-muted hover:text-white'"
         >
           🔍 تتبع حالة تذكرة
         </button>
@@ -67,7 +67,7 @@
               <span class="font-mono text-2xl font-black text-white tracking-widest">{{ createdTicketNumber }}</span>
               <button 
                 @click="copyTicketNumber" 
-                class="text-vibrant-purple hover:text-vibrant-pink p-2 hover:bg-dark-hover rounded-lg transition-colors cursor-pointer"
+                class="text-primary-400 hover:text-vibrant-pink p-2 hover:bg-dark-hover rounded-lg transition-colors cursor-pointer"
                 title="نسخ رقم التذكرة"
               >
                 <span v-if="copied">✅ تم النسخ</span>
@@ -88,7 +88,7 @@
               </button>
               <button 
                 @click="goToTrackTab" 
-                class="bg-gradient-to-l from-primary-400 to-vibrant-purple hover:opacity-90 text-white font-bold text-xs py-3 px-6 rounded-xl transition-all cursor-pointer"
+                class="bg-gradient-to-l from-primary-400 to-vibrant-pink hover:opacity-90 text-white font-bold text-xs py-3 px-6 rounded-xl transition-all cursor-pointer"
               >
                 تتبع حالة التذكرة الآن
               </button>
@@ -110,7 +110,7 @@
                   type="text" 
                   required
                   placeholder="مثال: أحمد محمد علي"
-                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors"
+                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors"
                 />
               </div>
 
@@ -122,7 +122,7 @@
                   type="tel" 
                   required
                   placeholder="مثال: 01012345678"
-                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors text-left"
+                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors text-left"
                   dir="ltr"
                 />
               </div>
@@ -136,7 +136,7 @@
                   v-model="form.client_whatsapp" 
                   type="tel" 
                   placeholder="مثال: 01012345678"
-                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors text-left"
+                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors text-left"
                   dir="ltr"
                 />
               </div>
@@ -147,7 +147,7 @@
                 <select 
                   v-model="form.system_name"
                   required
-                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-slate-200 focus:outline-none transition-colors cursor-pointer"
+                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-slate-200 focus:outline-none transition-colors cursor-pointer"
                 >
                   <option value="" disabled>اختر البرنامج المعني</option>
                   <option 
@@ -169,7 +169,7 @@
                 <select 
                   v-model="form.type"
                   required
-                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-slate-200 focus:outline-none transition-colors cursor-pointer"
+                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-slate-200 focus:outline-none transition-colors cursor-pointer"
                 >
                   <option value="support">🛠️ دعم فني (حل مشكلة أو عطل في النظام)</option>
                   <option value="modification">✨ طلب تعديل (إضافة ميزة أو موديول جديد)</option>
@@ -182,7 +182,7 @@
                 <select 
                   v-model="form.priority"
                   required
-                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-slate-200 focus:outline-none transition-colors cursor-pointer"
+                  class="w-full bg-dark-bg/60 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-slate-200 focus:outline-none transition-colors cursor-pointer"
                 >
                   <option value="low">منخفضة (استفسار عادي)</option>
                   <option value="medium">متوسطة (أعمال اعتيادية غير معطلة للعمل)</option>
@@ -200,7 +200,7 @@
                 type="text" 
                 required
                 placeholder="مثال: تعذر طباعة الباركود / طلب إضافة لوجو الفاتورة"
-                class="w-full bg-dark-bg/60 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors"
+                class="w-full bg-dark-bg/60 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors"
               />
             </div>
 
@@ -212,7 +212,7 @@
                 required
                 rows="5"
                 placeholder="يرجى كتابة تفاصيل المشكلة بدقة والخطوات التي تؤدي لظهورها، أو الميزة التي ترغب في إضافتها وتفاصيلها الفنية..."
-                class="w-full bg-dark-bg/60 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors resize-none leading-relaxed"
+                class="w-full bg-dark-bg/60 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors resize-none leading-relaxed"
               ></textarea>
             </div>
 
@@ -221,7 +221,7 @@
               <button 
                 type="submit"
                 :disabled="submitting"
-                class="bg-gradient-to-l from-primary-400 to-vibrant-purple text-white font-display font-bold text-xs py-3.5 px-8 rounded-xl transition-all duration-300 hover:shadow-neon-purple/30 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2 inline-flex"
+                class="bg-gradient-to-l from-primary-400 to-vibrant-pink text-white font-display font-bold text-xs py-3.5 px-8 rounded-xl transition-all duration-300 hover:shadow-neon-cyan/30 cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2 inline-flex"
               >
                 <span v-if="submitting" class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
                 <span>إرسال التذكرة الفنية</span>
@@ -245,7 +245,7 @@
                   type="text" 
                   required
                   placeholder="رقم التذكرة (مثال: RMT-1001)"
-                  class="w-full bg-dark-bg/80 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors text-center font-mono tracking-widest uppercase"
+                  class="w-full bg-dark-bg/80 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors text-center font-mono tracking-widest uppercase"
                 />
               </div>
               <div>
@@ -254,7 +254,7 @@
                   type="tel" 
                   required
                   placeholder="رقم الهاتف المسجل بالتذكرة"
-                  class="w-full bg-dark-bg/80 border border-dark-border focus:border-vibrant-purple rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors text-center font-mono"
+                  class="w-full bg-dark-bg/80 border border-dark-border focus:border-primary-400 rounded-xl px-4 py-3 text-xs text-white placeholder-dark-muted focus:outline-none transition-colors text-center font-mono"
                   dir="ltr"
                 />
               </div>
@@ -268,7 +268,7 @@
               <button 
                 type="submit"
                 :disabled="tracking"
-                class="bg-gradient-to-l from-primary-400 to-vibrant-purple text-white font-display font-bold text-xs py-3 px-6 rounded-xl transition-all cursor-pointer disabled:opacity-50 flex items-center gap-2 inline-flex"
+                class="bg-gradient-to-l from-primary-400 to-vibrant-pink text-white font-display font-bold text-xs py-3 px-6 rounded-xl transition-all cursor-pointer disabled:opacity-50 flex items-center gap-2 inline-flex"
               >
                 <span v-if="tracking" class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
                 <span>بحث وتتبع التذكرة</span>
@@ -330,12 +330,12 @@
             </div>
 
             <!-- Support Reply Section -->
-            <div v-if="ticket.admin_reply" class="bg-gradient-to-br from-primary-900/40 via-dark-card to-dark-card border border-vibrant-purple/20 p-6 rounded-2xl relative">
-              <div class="absolute top-4 left-4 text-xs font-mono text-vibrant-purple font-semibold bg-vibrant-purple/10 px-2 py-0.5 rounded-md">
+            <div v-if="ticket.admin_reply" class="bg-gradient-to-br from-primary-900/40 via-dark-card to-dark-card border border-primary-400/20 p-6 rounded-2xl relative">
+              <div class="absolute top-4 left-4 text-xs font-mono text-primary-400 font-semibold bg-primary-400/10 px-2 py-0.5 rounded-md">
                 رد الدعم الفني
               </div>
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-8 h-8 rounded-full bg-vibrant-purple flex items-center justify-center text-sm">
+                <div class="w-8 h-8 rounded-full bg-primary-400 flex items-center justify-center text-sm">
                   🏢
                 </div>
                 <div>
@@ -513,7 +513,7 @@ const statusLabels = {
 }
 
 const statusColors = {
-  open: 'bg-vibrant-purple/10 text-vibrant-purple border border-vibrant-purple/20',
+  open: 'bg-primary-400/10 text-primary-400 border border-primary-400/20',
   in_progress: 'bg-vibrant-blue/10 text-vibrant-blue border border-vibrant-blue/20 animate-pulse',
   resolved: 'bg-vibrant-teal/10 text-vibrant-teal border border-vibrant-teal/20',
   closed: 'bg-slate-800 text-slate-400 border border-slate-700'

@@ -20,15 +20,15 @@ const colorClasses = computed(() => {
   switch (props.type) {
     case 'new':
     case 'warning':
-      return 'bg-yellow-100 text-yellow-800 border border-yellow-200'
+      return 'bg-[#1A2332] text-[#00C6FF] border border-[#1E90FF]/30'
     case 'contacted':
     case 'info':
-      return 'bg-blue-100 text-blue-800 border border-blue-200'
+      return 'bg-[#11151F] text-slate-300 border border-[#1E2536]'
     case 'closed':
     case 'success':
-      return 'bg-green-100 text-green-800 border border-green-200'
+      return 'bg-[#11221F] text-emerald-400 border border-emerald-500/20'
     default:
-      return 'bg-primary-50 text-primary-800 border border-primary-100'
+      return 'bg-[#1A2332] text-[#00C6FF] border border-[#1E90FF]/30'
   }
 })
 </script>

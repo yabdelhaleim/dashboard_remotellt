@@ -48,7 +48,7 @@
       <div class="mt-12 text-center">
         <button
           @click="$emit('open-wizard')"
-          class="font-display font-bold text-sm bg-gradient-to-l from-primary-400 to-vibrant-purple text-white py-3.5 px-8 rounded-2xl shadow-neon-purple hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+          class="font-display font-bold text-sm bg-gradient-to-l from-primary-400 to-vibrant-pink text-white py-3.5 px-8 rounded-2xl shadow-neon-cyan hover:-translate-y-0.5 hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(0,198,255,0.45)] transition-all duration-300 cursor-pointer"
         >
           {{ t('book_now') }}
         </button>

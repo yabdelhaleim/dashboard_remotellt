@@ -19,11 +19,13 @@ const props = defineProps({
 
 const variantClasses = computed(() => {
   if (props.variant === 'primary') {
-    return 'bg-primary-400 hover:bg-primary-600 text-white font-mono'
+    return 'bg-gradient-to-l from-primary-400 to-vibrant-pink text-white hover:shadow-[0_0_25px_rgba(0,198,255,0.35)] hover:scale-[1.02]'
+  } else if (props.variant === 'secondary' || props.variant === 'outline') {
+    return 'bg-transparent hover:bg-primary-400/10 text-dark-text border border-primary-400/30 hover:border-primary-400/60'
   } else if (props.variant === 'charcoal') {
-    return 'bg-charcoal-800 hover:bg-charcoal-900 text-primary-200'
+    return 'bg-charcoal-900 hover:bg-dark-hover text-dark-text border border-dark-border'
   } else {
-    return 'bg-white hover:bg-warm-100 text-charcoal-800 border border-warm-border'
+    return 'bg-transparent hover:bg-primary-400/10 text-dark-text border border-primary-400/30 hover:border-primary-400/60'
   }
 })
 </script>

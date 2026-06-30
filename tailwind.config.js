@@ -9,48 +9,48 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary Brand — Warm Rust (from Logo)
+        // Primary Brand — Sky Blue (from Logo)
         primary: {
-          50:  '#FAF8F5',
-          100: '#FBEFEA',
-          200: '#F5D7C9',
-          400: '#C06C47', // Rust Orange
-          600: '#A15431',
-          800: '#773D22',
-          900: '#4B2412',
+          50:  '#F5F7FA',
+          100: '#E1E7F0',
+          200: '#C2D1E5',
+          400: '#1E90FF', // Sky Blue Primary
+          600: '#00B6FF',
+          800: '#0087C4',
+          900: '#005982',
         },
         charcoal: {
-          50:  '#FAF9F6',
-          100: '#F4F2EE',
-          200: '#E4DFD9',
-          700: '#7E766D',
-          800: '#4D4741',
-          900: '#2A2622',
+          50:  '#F5F7FA',
+          100: '#E4E7EB',
+          200: '#CBD2D9',
+          700: '#627D98',
+          800: '#486581',
+          900: '#102A43',
         },
         warm: {
-          50:     '#FDFBF7',
-          100:    '#FAF6F0',
-          200:    '#F1EAE0',
-          border: '#E3D8C8',
+          50:     '#F5F7FA',
+          100:    '#E4E7EB',
+          200:    '#CBD2D9',
+          border: '#334E68',
         },
-        // Sophisticated Dark Sienna Palette (for warm dark mode)
+        // Premium Dark Navy Palette
         dark: {
-          bg:     '#0C0B0A', // Deep obsidian black-brown
-          card:   '#141311', // Warm dark clay sienna
-          hover:  '#1C1B18', // Warm hover clay
-          border: '#262420', // Earthy border
-          text:   '#FAF8F5', // Warm cream white
-          muted:  '#908980', // Earthy muted gray
+          bg:     '#0A0E1A', // Deep dark navy
+          card:   '#11151F', // Secondary dark navy
+          hover:  '#1B202E', // Slightly lighter hover navy
+          border: '#1E2536', // Thin blue-gray border
+          text:   '#F5F7FA', // Off-white
+          muted:  '#9AA4B2', // Light gray muted text
         },
-        // Logo Accent colors mapped to existing classes to preserve layout styles
+        // Logo Accent colors mapped to sky blue / cyan variants
         vibrant: {
-          purple: '#C06C47', // Rust Orange
-          pink:   '#D49B4B', // Ochre Gold
-          blue:   '#4E6B53', // Olive Forest Green
-          teal:   '#5C7D61', // Sage Green
-          cyan:   '#E2865E', // Light Terracotta
-          indigo: '#A6532C', // Deep Ochre
-          lime:   '#A2B591', // Soft Moss
+          purple: '#1E90FF', // Sky Blue (Primary)
+          pink:   '#00C6FF', // Light Cyan (Secondary)
+          blue:   '#2563EB', // Blue
+          teal:   '#0EA5E9', // Light Sky Blue
+          cyan:   '#00C6FF', // Cyan
+          indigo: '#1D4ED8', // Deep Blue
+          lime:   '#60A5FA', // Soft Blue
         },
       },
       fontFamily: {
@@ -81,9 +81,9 @@ export default {
         'ar': '0',
       },
       boxShadow: {
-        'neon-purple': '0 0 25px rgba(168, 85, 247, 0.3)',
-        'neon-cyan':   '0 0 25px rgba(6, 182, 212, 0.3)',
-        'neon-blue':   '0 0 25px rgba(59, 130, 246, 0.3)',
+        'neon-purple': '0 0 25px rgba(30, 144, 255, 0.3)', // Dodger blue glow
+        'neon-cyan':   '0 0 25px rgba(0, 198, 255, 0.3)',  // Cyan glow
+        'neon-blue':   '0 0 25px rgba(30, 144, 255, 0.3)',  // Dodger blue glow
         'premium':     '0 8px 40px rgba(0, 0, 0, 0.5)',
         'card':        '0 4px 24px rgba(0, 0, 0, 0.3)',
       },
@@ -117,8 +117,8 @@ export default {
           '50%':      { transform: 'translateY(-8px)' },
         },
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(168, 85, 247, 0.2)' },
-          '50%':      { boxShadow: '0 0 35px rgba(168, 85, 247, 0.5)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(0, 198, 255, 0.2)' },
+          '50%':      { boxShadow: '0 0 35px rgba(0, 198, 255, 0.5)' },
         },
       },
     },

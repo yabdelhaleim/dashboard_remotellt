@@ -6,9 +6,9 @@
         
         <!-- Brand -->
         <div class="text-center md:text-right space-y-3">
-          <div class="bg-[#FAF8F5] px-4 py-2 rounded-xl inline-flex items-center justify-center border border-dark-border/20 shadow-sm mx-auto md:mx-0">
-            <img :src="'/logo.png'" alt="Remotelly Logo" class="h-6 w-auto object-contain" />
-          </div>
+          <router-link to="/" class="inline-block mx-auto md:mx-0">
+            <BrandLogo3D />
+          </router-link>
           <p class="font-body font-normal text-dark-muted text-sm mt-2 leading-ar-normal">
             {{ t('footer_desc') }}
           </p>
@@ -41,6 +41,7 @@
 <script setup>
 import { locale } from '../../utils/locale'
 import { translations } from '../../utils/translations'
+import BrandLogo3D from './BrandLogo3D.vue'
 
 function t(key) {
   return translations[locale.value][key] || key
