@@ -14,6 +14,12 @@
       <!-- Split Hero Section -->
       <SplitHero @open-wizard="isWizardOpen = true" />
 
+      <!-- Specializations (Web + Mobile Apps) -->
+      <SpecializationsSection />
+
+      <!-- Custom Services (Tourism, Accounting, Education, Websites, E-commerce, etc.) -->
+      <ServicesSection />
+
       <!-- Products Listing Section -->
       <ProductsSection />
 
@@ -37,6 +43,8 @@ import { ref } from 'vue'
 import { locale } from '../../utils/locale'
 import TheNavbar from '../../components/layout/TheNavbar.vue'
 import SplitHero from '../../components/layout/SplitHero.vue'
+import SpecializationsSection from '../../components/home/SpecializationsSection.vue'
+import ServicesSection from '../../components/home/ServicesSection.vue'
 import ProductsSection from '../../components/home/ProductsSection.vue'
 import HowItWorks from '../../components/home/HowItWorks.vue'
 import CTASection from '../../components/home/CTASection.vue'

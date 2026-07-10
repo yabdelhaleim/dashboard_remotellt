@@ -89,6 +89,30 @@
           </span>
         </router-link>
 
+        <!-- External SaaS Systems -->
+        <template v-if="externalSystems.length">
+          <div class="pt-4 mt-2 border-t border-dark-border">
+            <p class="px-4 mb-2 text-[10px] font-mono tracking-widest text-dark-muted uppercase">
+              أنظمتي
+            </p>
+
+            <a
+              v-for="system in externalSystems"
+              :key="system.label"
+              :href="system.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-dark-hover hover:text-white transition-all duration-200 text-sm group"
+            >
+              <div class="flex items-center gap-3">
+                <span class="group-hover:scale-110 transition-transform">{{ system.icon }}</span>
+                <span>{{ system.label }}</span>
+              </div>
+              <span class="text-[10px] text-dark-muted group-hover:text-vibrant-cyan">↗</span>
+            </a>
+          </div>
+        </template>
+
       </nav>
     </div>
 
@@ -112,6 +136,7 @@ import { useRequestsStore } from '../../stores/useRequestsStore'
 import { useBookingsStore } from '../../stores/useBookingsStore'
 import { useTicketsStore } from '../../stores/useTicketsStore'
 import { useAuthStore } from '../../stores/useAuthStore'
+import { externalSystems } from '../../config/externalSystems'
 
 const router = useRouter()
 const requestsStore = useRequestsStore()
