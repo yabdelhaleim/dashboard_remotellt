@@ -7,9 +7,9 @@
       <!-- Brand Header -->
       <div class="mb-8 border-b border-dark-border pb-5 relative">
         <span class="font-display font-black text-2xl tracking-wider block text-white">
-          REMOTE<span class="text-vibrant-purple drop-shadow-[0_0_8px_rgba(168,85,247,0.5)]">lly</span>
+          REMOTE<span class="text-primary-400 drop-shadow-[0_0_8px_rgba(0,198,255,0.5)]">ly</span>
         </span>
-        <span class="text-[9px] text-vibrant-cyan font-mono tracking-widest block mt-1">SaaS ENTERPRISE</span>
+        <span class="text-[10px] text-primary-400 font-mono tracking-[0.4em] block mt-1 font-bold">TEAM</span>
       </div>
 
       <!-- Navigation -->

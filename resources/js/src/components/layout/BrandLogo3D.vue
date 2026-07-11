@@ -7,6 +7,7 @@
         ? 'logo-container-large w-[260px] sm:w-[340px] md:w-[420px] lg:w-[480px] xl:w-[540px] 2xl:w-[600px]'
         : 'logo-container-small w-[160px] sm:w-[200px]'
     ]"
+    :dir="locale === 'ar' ? 'rtl' : 'ltr'"
   >
     <!-- Ambient pulsing glow behind the icon (large variant only) -->
     <div
@@ -16,7 +17,7 @@
     ></div>
 
     <!-- ============================================================ -->
-    <!-- Large variant: vertical stacked layout (used in hero/landing) -->
+    <!-- Large variant: stacked layout (hero / landing)               -->
     <!-- ============================================================ -->
     <svg
       v-if="size === 'large'"
@@ -26,11 +27,11 @@
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
       role="img"
-      :aria-label="locale === 'ar' ? 'شعار ريموتلي' : 'Remotelly logo'"
+      :aria-label="locale === 'ar' ? 'شعار ريموتلي' : 'Remotely — Your Software Solutions Partner'"
     >
       <defs>
-        <!-- Sky blue gradient with slow color cycle (premium feel) -->
-        <linearGradient id="logo-grad-lg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <!-- Brand blue gradient with slow color cycle (premium feel) -->
+        <linearGradient id="lg-blue" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#00C6FF">
             <animate
               attributeName="stop-color"
@@ -50,7 +51,7 @@
         </linearGradient>
 
         <!-- Shine gradient (transparent band that sweeps across the wordmark on hover) -->
-        <linearGradient id="shine-grad-lg" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient id="lg-shine" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%"   stop-color="#ffffff" stop-opacity="0" />
           <stop offset="42%"  stop-color="#ffffff" stop-opacity="0" />
           <stop offset="50%"  stop-color="#ffffff" stop-opacity="0.65" />
@@ -58,208 +59,128 @@
           <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
         </linearGradient>
 
-        <!-- Reusable wordmark symbol so we can use it for both visible fill and shine clip -->
-        <symbol id="wordmark-lg" overflow="visible">
-          <g transform="translate(92.5, 420)" fill="#243B55">
-            <!-- R (with blue diagonal leg accent) -->
-            <g>
-              <path
-                d="M 35 40 L 48 40 L 75 100 L 58 100 Z"
-                fill="url(#logo-grad-lg)"
-                stroke="url(#logo-grad-lg)"
-                stroke-width="4"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M 0 0 L 45 0 C 65 0 75 10 75 25 C 75 40 65 50 45 50 L 45 100 L 30 100 Q 20 100 20 90 L 20 20 Q 20 5 0 0 Z M 45 15 L 45 35 C 55 35 60 30 60 25 C 60 20 55 15 45 15 Z"
-                fill="#243B55"
-                stroke="#243B55"
-                stroke-width="4.5"
-                stroke-linejoin="round"
-              />
-            </g>
-            <!-- E -->
-            <path
-              d="M 95 0 L 165 0 L 165 15 L 115 15 L 115 42 L 150 42 L 150 58 L 115 58 L 115 85 L 165 85 L 165 100 L 125 100 Q 115 100 115 90 L 115 20 Q 115 5 95 0 Z"
-              fill="#243B55"
-              stroke="#243B55"
-              stroke-width="4.5"
-              stroke-linejoin="round"
-            />
-            <!-- M -->
-            <path
-              d="M 185 0 L 203 0 L 227.5 55 L 252 0 L 270 0 L 270 100 L 255 100 L 255 25 L 227.5 75 L 200 25 L 200 100 L 185 100 Z"
-              fill="#243B55"
-              stroke="#243B55"
-              stroke-width="4.5"
-              stroke-linejoin="round"
-            />
-            <!-- O -->
-            <path
-              d="M 315 0 L 340 0 C 355 0 365 15 365 35 L 365 65 C 365 85 355 100 340 100 L 315 100 C 300 100 290 85 290 65 L 290 35 C 290 15 300 0 315 0 Z M 315 15 C 308 15 305 22 305 35 L 305 65 C 305 78 308 85 315 85 L 340 85 C 347 85 350 78 350 65 L 350 35 C 350 22 347 15 340 15 Z"
-              fill="#243B55"
-              fill-rule="evenodd"
-              stroke="#243B55"
-              stroke-width="4.5"
-              stroke-linejoin="round"
-            />
-            <!-- T -->
-            <path
-              d="M 385 0 L 460 0 L 460 15 L 430 15 L 430 100 L 415 100 L 415 15 L 385 15 Z"
-              fill="#243B55"
-              stroke="#243B55"
-              stroke-width="4.5"
-              stroke-linejoin="round"
-            />
-            <!-- E -->
-            <path
-              d="M 480 0 L 550 0 L 550 15 L 500 15 L 500 42 L 535 42 L 535 58 L 500 58 L 500 85 L 550 85 L 550 100 L 510 100 Q 500 100 500 90 L 500 20 Q 500 5 480 0 Z"
-              fill="#243B55"
-              stroke="#243B55"
-              stroke-width="4.5"
-              stroke-linejoin="round"
-            />
-            <!-- L -->
-            <path
-              d="M 570 0 L 585 0 L 585 85 L 635 85 L 635 100 L 570 100 Z"
-              fill="#243B55"
-              stroke="#243B55"
-              stroke-width="4.5"
-              stroke-linejoin="round"
-            />
-            <!-- L -->
-            <path
-              d="M 655 0 L 670 0 L 670 85 L 720 85 L 720 100 L 655 100 Z"
-              fill="#243B55"
-              stroke="#243B55"
-              stroke-width="4.5"
-              stroke-linejoin="round"
-            />
-            <!-- Y (with blue diagonal accent) -->
-            <g transform="translate(740, 0)">
-              <path
-                d="M 75 0 L 60 0 L 37.5 35 L 52.5 35 Z"
-                fill="url(#logo-grad-lg)"
-                stroke="url(#logo-grad-lg)"
-                stroke-width="4"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M 0 0 L 15 0 L 30 35 L 30 100 L 45 100 L 45 35 Z"
-                fill="#243B55"
-                stroke="#243B55"
-                stroke-width="4.5"
-                stroke-linejoin="round"
-              />
-            </g>
-          </g>
+        <!-- Reusable "Remotely" wordmark (used for visible fill and shine clip) -->
+        <symbol id="lg-remotely" overflow="visible">
+          <text
+            x="0"
+            y="0"
+            text-anchor="middle"
+            font-family="'Outfit', 'IBM Plex Sans', system-ui, sans-serif"
+            font-size="140"
+            font-weight="800"
+            letter-spacing="-2"
+            fill="#FFFFFF"
+          >Remotely</text>
         </symbol>
 
-        <!-- Clip path: wordmark shape (used to constrain the shine sweep) -->
-        <clipPath id="wordmark-clip-lg">
-          <use href="#wordmark-lg" />
+        <clipPath id="lg-clip">
+          <use href="#lg-remotely" />
         </clipPath>
       </defs>
 
-      <!-- ============ Icon: R symbol with WiFi waves ============ -->
-      <g class="icon-block entrance-icon" transform="translate(300, 50) scale(2.8)">
-        <!-- Blue diagonal leg -->
-        <path
-          class="icon-shape"
-          d="M 35 40 L 48 40 L 75 100 L 58 100 Z"
-          fill="url(#logo-grad-lg)"
-          stroke="url(#logo-grad-lg)"
-          stroke-width="4"
-          stroke-linejoin="round"
-        />
-        <!-- Dark navy stem and loop -->
-        <path
-          class="icon-shape"
-          d="M 0 0 L 45 0 C 65 0 75 10 75 25 C 75 40 65 50 45 50 L 45 100 L 30 100 Q 20 100 20 90 L 20 20 Q 20 5 0 0 Z M 45 15 L 45 35 C 55 35 60 30 60 25 C 60 20 55 15 45 15 Z"
-          fill="#243B55"
-          stroke="#243B55"
-          stroke-width="4.5"
+      <!-- ============ Icon: R with > _ terminal ============ -->
+      <g class="icon-block entrance-icon" transform="translate(360, 50)">
+        <!-- Outer rounded square (the R's stem and top) -->
+        <rect
+          x="0"
+          y="0"
+          width="280"
+          height="280"
+          rx="42"
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="14"
           stroke-linejoin="round"
         />
 
-        <!-- WiFi waves (3 layered pulsing animations) -->
-        <g class="wifi-block">
-          <circle class="wifi-wave wifi-wave-1" cx="95" cy="18" r="7" fill="url(#logo-grad-lg)" />
-          <path
-            class="wifi-wave wifi-wave-2"
-            d="M 92 -8 A 26 26 0 0 1 121 21"
-            fill="none"
-            stroke="url(#logo-grad-lg)"
-            stroke-width="7"
-            stroke-linecap="round"
-          />
-          <path
-            class="wifi-wave wifi-wave-3"
-            d="M 90 -30 A 48 48 0 0 1 143 23"
-            fill="none"
-            stroke="url(#logo-grad-lg)"
-            stroke-width="7"
-            stroke-linecap="round"
+        <!-- Diagonal R leg (parallelogram extending past the bottom-right corner) -->
+        <path
+          d="M 158 168 L 188 168 L 286 280 L 254 280 Z"
+          fill="#FFFFFF"
+        />
+
+        <!-- Terminal prompt (blue, inside the bowl area) -->
+        <g class="terminal-group">
+          <!-- The ">" chevron and the "_" underscore together -->
+          <text
+            x="58"
+            y="158"
+            font-family="'IBM Plex Mono', 'JetBrains Mono', monospace"
+            font-size="118"
+            font-weight="900"
+            fill="url(#lg-blue)"
+          >&gt;_</text>
+
+          <!-- Subtle blinking caret under the underscore (terminal-life feel) -->
+          <rect
+            class="terminal-caret"
+            x="156"
+            y="138"
+            width="6"
+            height="22"
+            fill="url(#lg-blue)"
+            rx="1"
           />
         </g>
       </g>
 
-      <!-- ============ Wordmark: REMOTELLY ============ -->
-      <g class="wordmark-block entrance-wordmark">
-        <use href="#wordmark-lg" />
+      <!-- ============ Wordmark: "Remotely" ============ -->
+      <g class="wordmark-block entrance-wordmark" transform="translate(500, 430)">
+        <use href="#lg-remotely" />
+
+        <!-- Shine sweep overlay (clipped to wordmark) -->
+        <g class="shine-layer" clip-path="url(#lg-clip)" aria-hidden="true">
+          <rect
+            class="shine-sweep shine-sweep-lg"
+            x="-100"
+            y="-130"
+            width="120"
+            height="200"
+            fill="url(#lg-shine)"
+          />
+        </g>
       </g>
 
-      <!-- 'lly' accent underline (reveals on hover) -->
-      <rect
-        class="lly-underline"
-        x="663"
-        y="530"
-        width="0"
-        height="7"
-        rx="3.5"
-        fill="url(#logo-grad-lg)"
-        aria-hidden="true"
+      <!-- ============ TEAM subtitle (with wide letter-spacing) ============ -->
+      <g class="team-block entrance-team" transform="translate(500, 510)">
+        <text
+          x="0"
+          y="0"
+          text-anchor="middle"
+          font-family="'Outfit', sans-serif"
+          font-size="58"
+          font-weight="600"
+          fill="url(#lg-blue)"
+          letter-spacing="32"
+        >T E A M</text>
+      </g>
+
+      <!-- ============ Divider line (under TEAM) ============ -->
+      <line
+        class="divider-block entrance-divider"
+        x1="380" y1="565" x2="620" y2="565"
+        stroke="url(#lg-blue)"
+        stroke-width="2"
+        stroke-linecap="round"
+        opacity="0.55"
       />
-
-      <!-- Shine sweep overlay (clipped to wordmark) -->
-      <g class="shine-layer" clip-path="url(#wordmark-clip-lg)" aria-hidden="true">
-        <rect
-          class="shine-sweep"
-          x="-200"
-          y="380"
-          width="180"
-          height="180"
-          fill="url(#shine-grad-lg)"
-        />
-      </g>
-
-      <!-- ============ Divider dots & lines ============ -->
-      <g class="divider-block entrance-divider" transform="translate(0, 560)">
-        <line x1="250" y1="0" x2="440" y2="0" stroke="url(#logo-grad-lg)" stroke-width="2" stroke-linecap="round" />
-        <circle cx="475" cy="0" r="3" fill="url(#logo-grad-lg)" />
-        <circle cx="500" cy="0" r="4" fill="url(#logo-grad-lg)" />
-        <circle cx="515" cy="0" r="3" fill="url(#logo-grad-lg)" />
-        <line x1="550" y1="0" x2="740" y2="0" stroke="url(#logo-grad-lg)" stroke-width="2" stroke-linecap="round" />
-      </g>
 
       <!-- ============ Tagline ============ -->
       <text
         class="tagline entrance-tagline"
         x="500"
-        y="615"
-        :font-family="locale === 'ar' ? 'Cairo, sans-serif' : 'Outfit, sans-serif'"
-        :font-size="locale === 'ar' ? '21' : '15'"
-        font-weight="900"
-        fill="#9AA4B2"
-        :letter-spacing="locale === 'ar' ? '0.02em' : '0.45em'"
+        y="608"
         text-anchor="middle"
-      >
-        {{ locale === 'ar' ? 'منصة الأنظمة السحابية وتطبيقات الجوال' : 'CLOUD SYSTEMS & MOBILE APPS PLATFORM' }}
-      </text>
+        font-family="'IBM Plex Mono', 'Cairo', monospace"
+        font-size="20"
+        font-weight="500"
+        fill="#9AA4B2"
+        letter-spacing="3"
+      >— {{ brandTagline }} —</text>
     </svg>
 
     <!-- ============================================================ -->
-    <!-- Small variant: horizontal layout (used in navbar / footer)   -->
+    <!-- Small variant: horizontal inline (navbar / footer)            -->
     <!-- ============================================================ -->
     <svg
       v-else
@@ -269,10 +190,10 @@
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid meet"
       role="img"
-      :aria-label="locale === 'ar' ? 'شعار ريموتلي' : 'Remotelly logo'"
+      :aria-label="locale === 'ar' ? 'شعار ريموتلي' : 'Remotely logo'"
     >
       <defs>
-        <linearGradient id="logo-grad-sm" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="sm-blue" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#00C6FF">
             <animate
               attributeName="stop-color"
@@ -291,7 +212,7 @@
           </stop>
         </linearGradient>
 
-        <linearGradient id="shine-grad-sm" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient id="sm-shine" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%"   stop-color="#ffffff" stop-opacity="0" />
           <stop offset="42%"  stop-color="#ffffff" stop-opacity="0" />
           <stop offset="50%"  stop-color="#ffffff" stop-opacity="0.55" />
@@ -299,65 +220,82 @@
           <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
         </linearGradient>
 
-        <symbol id="wordmark-sm" overflow="visible">
-          <g transform="translate(170, 41.5) scale(0.45)" fill="#243B55">
-            <g>
-              <path d="M 35 40 L 48 40 L 75 100 L 58 100 Z" fill="url(#logo-grad-sm)" stroke="url(#logo-grad-sm)" stroke-width="4" stroke-linejoin="round" />
-              <path d="M 0 0 L 45 0 C 65 0 75 10 75 25 C 75 40 65 50 45 50 L 45 100 L 30 100 Q 20 100 20 90 L 20 20 Q 20 5 0 0 Z M 45 15 L 45 35 C 55 35 60 30 60 25 C 60 20 55 15 45 15 Z" fill="#243B55" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            </g>
-            <path d="M 95 0 L 165 0 L 165 15 L 115 15 L 115 42 L 150 42 L 150 58 L 115 58 L 115 85 L 165 85 L 165 100 L 125 100 Q 115 100 115 90 L 115 20 Q 115 5 95 0 Z" fill="#243B55" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            <path d="M 185 0 L 203 0 L 227.5 55 L 252 0 L 270 0 L 270 100 L 255 100 L 255 25 L 227.5 75 L 200 25 L 200 100 L 185 100 Z" fill="#243B55" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            <path d="M 315 0 L 340 0 C 355 0 365 15 365 35 L 365 65 C 365 85 355 100 340 100 L 315 100 C 300 100 290 85 290 65 L 290 35 C 290 15 300 0 315 0 Z M 315 15 C 308 15 305 22 305 35 L 305 65 C 305 78 308 85 315 85 L 340 85 C 347 85 350 78 350 65 L 350 35 C 350 22 347 15 340 15 Z" fill="#243B55" fill-rule="evenodd" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            <path d="M 385 0 L 460 0 L 460 15 L 430 15 L 430 100 L 415 100 L 415 15 L 385 15 Z" fill="#243B55" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            <path d="M 480 0 L 550 0 L 550 15 L 500 15 L 500 42 L 535 42 L 535 58 L 500 58 L 500 85 L 550 85 L 550 100 L 510 100 Q 500 100 500 90 L 500 20 Q 500 5 480 0 Z" fill="#243B55" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            <path d="M 570 0 L 585 0 L 585 85 L 635 85 L 635 100 L 570 100 Z" fill="#243B55" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            <path d="M 655 0 L 670 0 L 670 85 L 720 85 L 720 100 L 655 100 Z" fill="#243B55" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            <g transform="translate(740, 0)">
-              <path d="M 75 0 L 60 0 L 37.5 35 L 52.5 35 Z" fill="url(#logo-grad-sm)" stroke="url(#logo-grad-sm)" stroke-width="4" stroke-linejoin="round" />
-              <path d="M 0 0 L 15 0 L 30 35 L 30 100 L 45 100 L 45 35 Z" fill="#243B55" stroke="#243B55" stroke-width="4.5" stroke-linejoin="round" />
-            </g>
-          </g>
+        <symbol id="sm-remotely" overflow="visible">
+          <text
+            x="0"
+            y="0"
+            text-anchor="middle"
+            font-family="'Outfit', 'IBM Plex Sans', sans-serif"
+            font-size="58"
+            font-weight="800"
+            letter-spacing="-1"
+            fill="#FFFFFF"
+          >Remotely</text>
         </symbol>
 
-        <clipPath id="wordmark-clip-sm">
-          <use href="#wordmark-sm" />
+        <clipPath id="sm-clip">
+          <use href="#sm-remotely" />
         </clipPath>
       </defs>
 
-      <!-- Icon: R symbol with waves -->
-      <g class="icon-block entrance-icon" transform="translate(15, 14) scale(1.1)">
-        <path d="M 35 40 L 48 40 L 75 100 L 58 100 Z" fill="url(#logo-grad-sm)" stroke="url(#logo-grad-sm)" stroke-width="3" stroke-linejoin="round" />
-        <path d="M 0 0 L 45 0 C 65 0 75 10 75 25 C 75 40 65 50 45 50 L 45 100 L 30 100 Q 20 100 20 90 L 20 20 Q 20 5 0 0 Z M 45 15 L 45 35 C 55 35 60 30 60 25 C 60 20 55 15 45 15 Z" fill="#243B55" stroke="#243B55" stroke-width="3" stroke-linejoin="round" />
-
-        <g class="wifi-block">
-          <circle class="wifi-wave wifi-wave-1" cx="95" cy="18" r="7" fill="url(#logo-grad-sm)" />
-          <path class="wifi-wave wifi-wave-2" d="M 92 -8 A 26 26 0 0 1 121 21" fill="none" stroke="url(#logo-grad-sm)" stroke-width="7" stroke-linecap="round" />
-          <path class="wifi-wave wifi-wave-3" d="M 90 -30 A 48 48 0 0 1 143 23" fill="none" stroke="url(#logo-grad-sm)" stroke-width="7" stroke-linecap="round" />
-        </g>
+      <!-- Icon: compact R with terminal prompt -->
+      <g class="icon-block entrance-icon" transform="translate(40, 22)">
+        <rect
+          x="0"
+          y="0"
+          width="84"
+          height="84"
+          rx="14"
+          fill="none"
+          stroke="#FFFFFF"
+          stroke-width="5"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M 48 48 L 58 48 L 90 84 L 80 84 Z"
+          fill="#FFFFFF"
+        />
+        <text
+          x="14"
+          y="50"
+          font-family="'IBM Plex Mono', monospace"
+          font-size="34"
+          font-weight="900"
+          fill="url(#sm-blue)"
+        >&gt;_</text>
+        <rect
+          class="terminal-caret"
+          x="46"
+          y="44"
+          width="3"
+          height="9"
+          fill="url(#sm-blue)"
+          rx="0.5"
+        />
       </g>
 
       <!-- Wordmark -->
-      <g class="wordmark-block entrance-wordmark">
-        <use href="#wordmark-sm" />
-      </g>
-
-      <!-- Shine sweep (clipped to wordmark) -->
-      <g class="shine-layer" clip-path="url(#wordmark-clip-sm)" aria-hidden="true">
-        <rect
-          class="shine-sweep"
-          x="-150"
-          y="20"
-          width="120"
-          height="120"
-          fill="url(#shine-grad-sm)"
-        />
+      <g class="wordmark-block entrance-wordmark" transform="translate(290, 84)">
+        <use href="#sm-remotely" />
+        <g class="shine-layer" clip-path="url(#sm-clip)" aria-hidden="true">
+          <rect
+            class="shine-sweep shine-sweep-sm"
+            x="-50"
+            y="-50"
+            width="50"
+            height="80"
+            fill="url(#sm-shine)"
+          />
+        </g>
       </g>
     </svg>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { locale } from '../../utils/locale'
+import { translations } from '../../utils/translations'
 
 defineProps({
   size: {
@@ -366,6 +304,12 @@ defineProps({
     validator: (val) => ['small', 'large'].includes(val),
   },
 })
+
+// Tagline shown below TEAM ("Your Software Solutions Partner" / Arabic equivalent).
+// Falls back to English string if the AR/EN translation hasn't been added yet.
+const brandTagline = computed(
+  () => translations[locale.value]?.brand_tagline || 'Your Software Solutions Partner'
+)
 </script>
 
 <style scoped>
@@ -384,18 +328,23 @@ defineProps({
 }
 
 @keyframes blockRise {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes teamSpread {
+  0%   { opacity: 0; letter-spacing: 8px; }
+  100% { opacity: 1; letter-spacing: 32px; }
 }
 
 @keyframes dividerExpand {
   from { opacity: 0; transform: scaleX(0); }
-  to   { opacity: 1; transform: scaleX(1); }
+  to   { opacity: 0.55; transform: scaleX(1); }
 }
 
 @keyframes taglineFade {
   from { opacity: 0; letter-spacing: 0; }
-  to   { opacity: 1; letter-spacing: inherit; }
+  to   { opacity: 1; letter-spacing: 3px; }
 }
 
 .logo-container {
@@ -414,65 +363,51 @@ defineProps({
   animation: blockRise 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.45s backwards;
 }
 
+.entrance-team {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: teamSpread 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.65s backwards;
+}
+
 .entrance-divider {
   transform-box: fill-box;
   transform-origin: center;
-  animation: dividerExpand 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.85s backwards;
+  animation: dividerExpand 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.95s backwards;
 }
 
 .entrance-tagline {
-  animation: taglineFade 0.5s ease-out 1.05s backwards;
+  animation: taglineFade 0.5s ease-out 1.15s backwards;
 }
 
 /* ===================================================================
-   CONTINUOUS — Layered WiFi wave pulses (3 staggered animations)
+   CONTINUOUS — Terminal cursor blink (the small rect after >_)
    =================================================================== */
-.wifi-wave {
-  transform-box: fill-box;
-  transform-origin: center;
+@keyframes caretBlink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
-
-@keyframes wifiPulseInner {
-  0%, 100% { opacity: 0.85; transform: scale(1); }
-  50%      { opacity: 1;    transform: scale(1.12); }
-}
-.wifi-wave-1 {
-  animation: wifiPulseInner 2.6s ease-in-out infinite;
-}
-
-@keyframes wifiPulseMid {
-  0%, 100% { opacity: 0.7; transform: scale(0.95); }
-  50%      { opacity: 1;   transform: scale(1.06); }
-}
-.wifi-wave-2 {
-  animation: wifiPulseMid 3.4s ease-in-out infinite 0.3s;
-}
-
-@keyframes wifiPulseOuter {
-  0%, 100% { opacity: 0.55; transform: scale(0.93); }
-  50%      { opacity: 0.9;  transform: scale(1.04); }
-}
-.wifi-wave-3 {
-  animation: wifiPulseOuter 4.2s ease-in-out infinite 0.6s;
+.terminal-caret {
+  animation: caretBlink 1.05s steps(1, end) infinite 1.5s;
 }
 
 /* ===================================================================
-   AMBIENT BACKLIGHT (large variant only) — slow breathing
+   AMBIENT BACKLIGHT (large variant only) — slow breathing glow
+   behind the R icon
    =================================================================== */
 @keyframes glowBreathe {
   0%, 100% { opacity: 0.22; transform: scale(1); }
-  50%      { opacity: 0.42; transform: scale(1.12); }
+  50%      { opacity: 0.45; transform: scale(1.12); }
 }
 .ambient-glow {
   position: absolute;
   width: 12rem;
   height: 12rem;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(0, 198, 255, 0.5) 0%, rgba(0, 198, 255, 0) 70%);
-  filter: blur(20px);
+  background: radial-gradient(circle, rgba(0, 198, 255, 0.55) 0%, rgba(0, 198, 255, 0) 70%);
+  filter: blur(22px);
   pointer-events: none;
-  top: -8%;
-  left: 35%;
+  top: 5%;
+  left: 38%;
   z-index: 0;
   animation: glowBreathe 5s ease-in-out infinite 0.8s;
 }
@@ -485,19 +420,11 @@ defineProps({
 }
 
 .logo-container:hover .ambient-glow {
-  opacity: 0.55;
+  opacity: 0.65;
   animation-duration: 2.8s;
 }
 
-/* Reveal the "lly" accent underline on hover (large variant only) */
-.lly-underline {
-  transition: width 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
-}
-.logo-container:hover .lly-underline {
-  width: 244;
-}
-
-/* Shine sweep on hover */
+/* Shine sweep on hover over the wordmark */
 .shine-layer {
   opacity: 0;
   transition: opacity 0.25s ease-out;
@@ -508,17 +435,19 @@ defineProps({
 
 @keyframes shineSweepLg {
   0%   { transform: translateX(-220px); }
-  100% { transform: translateX(1080px); }
+  100% { transform: translateX(720px); }
 }
 @keyframes shineSweepSm {
-  0%   { transform: translateX(-160px); }
-  100% { transform: translateX(540px);  }
+  0%   { transform: translateX(-90px); }
+  100% { transform: translateX(360px); }
 }
 .shine-sweep {
   opacity: 0;
 }
 .logo-container:hover .shine-sweep {
   opacity: 1;
+}
+.logo-container-large:hover .shine-sweep {
   animation: shineSweepLg 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .logo-container-small:hover .shine-sweep {
@@ -532,9 +461,10 @@ defineProps({
   .logo-container,
   .entrance-icon,
   .entrance-wordmark,
+  .entrance-team,
   .entrance-divider,
   .entrance-tagline,
-  .wifi-wave,
+  .terminal-caret,
   .ambient-glow,
   .shine-layer,
   .shine-sweep {
@@ -543,8 +473,8 @@ defineProps({
     opacity: 1 !important;
     transform: none !important;
   }
-  .lly-underline {
-    width: 244 !important;
+  .entrance-divider {
+    opacity: 0.55 !important;
   }
 }
 </style>

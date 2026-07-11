@@ -59,6 +59,9 @@ export const translations = {
     footer_desc: "شريكك التقني الموثوق لبناء وتفعيل الأنظمة السحابية",
     copyright: "جميع الحقوق محفوظة © {year} REMOTELLY — تصميم وتطوير أنظمة سحابية احترافية",
 
+    // Brand (logo tagline)
+    brand_tagline: "شريكك في الحلول البرمجية المتكاملة",
+
     // SpecializationsSection (Web + Mobile)
     spec_badge: "تخصصاتنا • OUR SPECIALIZATIONS",
     spec_title: "نُطوّر حلول ويب وتطبيقات موبايل احترافية",
@@ -202,6 +205,9 @@ export const translations = {
     // Footer
     footer_desc: "Your trusted tech partner to build and deploy cloud systems.",
     copyright: "All rights reserved © {year} REMOTELLY — Design & Development of Professional Cloud Systems",
+
+    // Brand (logo tagline)
+    brand_tagline: "Your Software Solutions Partner",
 
     // SpecializationsSection (Web + Mobile)
     spec_badge: "OUR SPECIALIZATIONS • تخصصاتنا",
