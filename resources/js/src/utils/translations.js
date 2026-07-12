@@ -13,19 +13,28 @@ export const translations = {
     back_home: "العودة للرئيسية",
     
     // SplitHero
-    hero_badge: "REMOTELY AGENCY • SAAS SOLUTIONS",
-    hero_title_1: "السحابي",
-    hero_title_brand: "امتلك نظامك",
-    hero_title_2: "الذكي وأدر أعمالك بكفاءة",
-    hero_desc: "فريق ريموتلي يصمم ويبني لك أنظمة مخصصة لإدارة المخازن، المطاعم، والكاشير. نساعدك على أتمتة مبيعاتك ومراقبة أرباحك من أي مكان.",
-    feat_1_title: "تفعيل فوري",
-    feat_1_sub: "جاهز للعمل خلال 24 ساعة",
-    feat_2_title: "أمان كامل للبيانات",
-    feat_2_sub: "نسخ احتياطي سحابي تلقائي",
-    feat_3_title: "جلسة استشارية مجانية",
-    feat_3_sub: "نناقش فكرتك أونلاين",
-    feat_4_title: "دعم فني متكامل",
-    feat_4_sub: "تحديثات دورية وصيانة مستمرة",
+    hero_badge: "REMOTELY TEAM • SAAS SOLUTIONS",
+    hero_title_pre: "نحوّل أفكارك إلى",
+    hero_title_accent: "حلول رقمية",
+    hero_subtitle: "فريقك التقني عن بُعد",
+    hero_desc: "نقدّم خدمات برمجية متكاملة تساعد أعمالك على النمو والتطوير بثقة وجودة عالية. من الفكرة إلى الإطلاق، فريقك موجود معك.",
+    hero_services: "خدماتنا",
+    hero_svc_1: "تطوير المواقع",
+    hero_svc_2: "تطوير التطبيقات",
+    hero_svc_3: "الحلول السحابية",
+    hero_svc_4: "تصميم UI/UX",
+    hero_svc_5: "الدعم والصيانة",
+    hero_features: "لماذا ريموتلي",
+    hero_f1_title: "فريق متترف",
+    hero_f1_sub: "ذو خبرة واسعة",
+    hero_f2_title: "التزام بالمواعيد",
+    hero_f2_sub: "وجودة في التنفيذ",
+    hero_f3_title: "آمن وخصوصية",
+    hero_f3_sub: "لمعلوماتك",
+    hero_f4_title: "تواصل مستمر",
+    hero_f4_sub: "ودعم سريع",
+    hero_cta_title: "لنبدي مشروعك القادم معاً",
+    hero_cta_btn: "تواصل معنا الآن",
 
     // ProductsSection
     products_badge: "حلولنا البرمجية المبتكرة",
@@ -60,7 +69,7 @@ export const translations = {
     copyright: "جميع الحقوق محفوظة © {year} REMOTELLY — تصميم وتطوير أنظمة سحابية احترافية",
 
     // Brand (logo tagline)
-    brand_tagline: "شريكك في الحلول البرمجية المتكاملة",
+    brand_tagline: "فريقك أونلاين",
 
     // SpecializationsSection (Web + Mobile)
     spec_badge: "تخصصاتنا • OUR SPECIALIZATIONS",
@@ -160,19 +169,28 @@ export const translations = {
     back_home: "Back to Home",
 
     // SplitHero
-    hero_badge: "REMOTELLY AGENCY • CLOUD SOLUTIONS",
-    hero_title_1: "Remotelly",
-    hero_title_brand: "Platform",
-    hero_title_2: "for Cloud Systems & Mobile Apps",
-    hero_desc: "Remotelly specializes in developing and designing integrated cloud software (SaaS) and smart mobile applications (iOS & Android). We innovate customized digital solutions to automate your business, manage sales, warehouses, and restaurants from anywhere in the world with the highest standards of speed and security.",
-    feat_1_title: "Instant Activation",
-    feat_1_sub: "Ready to work within 24 hours",
-    feat_2_title: "Complete Data Security",
-    feat_2_sub: "Automatic cloud backups",
-    feat_3_title: "Free Consultation",
-    feat_3_sub: "We discuss your idea online",
-    feat_4_title: "Full Tech Support",
-    feat_4_sub: "Regular updates & maintenance",
+    hero_badge: "REMOTELY TEAM • ONLINE",
+    hero_title_pre: "We turn your ideas into",
+    hero_title_accent: "digital solutions",
+    hero_subtitle: "Your Remote Tech Team",
+    hero_desc: "We deliver integrated software services that help your business grow and scale with confidence and quality. From idea to launch, your team is with you.",
+    hero_services: "What we do",
+    hero_svc_1: "Web Development",
+    hero_svc_2: "Mobile Apps",
+    hero_svc_3: "Cloud Solutions",
+    hero_svc_4: "UI/UX Design",
+    hero_svc_5: "Support & Maintenance",
+    hero_features: "Why Remotelly",
+    hero_f1_title: "Skilled Team",
+    hero_f1_sub: "with deep expertise",
+    hero_f2_title: "On-Time Delivery",
+    hero_f2_sub: "with quality execution",
+    hero_f3_title: "Secure & Private",
+    hero_f3_sub: "for your data",
+    hero_f4_title: "Continuous Support",
+    hero_f4_sub: "and quick replies",
+    hero_cta_title: "Let's start your next project together",
+    hero_cta_btn: "Contact Us Now",
 
     // ProductsSection
     products_badge: "Our Innovative Software Solutions",
@@ -207,7 +225,7 @@ export const translations = {
     copyright: "All rights reserved © {year} REMOTELLY — Design & Development of Professional Cloud Systems",
 
     // Brand (logo tagline)
-    brand_tagline: "Your Software Solutions Partner",
+    brand_tagline: "Team Online",
 
     // SpecializationsSection (Web + Mobile)
     spec_badge: "OUR SPECIALIZATIONS • تخصصاتنا",

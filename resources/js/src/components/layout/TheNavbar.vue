@@ -3,9 +3,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-[72px]">
         
-        <!-- Logo -->
-        <router-link to="/" class="flex items-center gap-2 group shrink-0">
-          <BrandLogo3D />
+        <!-- Logo: original uploaded image, used as-is (no cropping, no SVG, no modification) -->
+        <router-link to="/" class="navbar-brand group shrink-0 select-none">
+          <img
+            :src="logo"
+            alt="Remotly Team"
+            width="224"
+            height="125"
+            class="navbar-logo"
+            draggable="false"
+          />
         </router-link>
 
         <!-- Desktop Menu -->
@@ -111,11 +118,48 @@
   </nav>
 </template>
 
+<style scoped>
+/* Brand — original uploaded logo, responsive sizing per spec (slightly larger) */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+/* Original aspect ratio: 1254×698 ≈ 1.796:1 — preserve it on all breakpoints */
+.navbar-logo {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  /* Desktop ≥768px: 64px tall (was 56px) */
+  height: 64px;
+  width: 115px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    /* Tablet ≤768px: 52px tall (was 46px) */
+    height: 52px;
+    width: 93.4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo {
+    /* Mobile ≤480px: 44px tall (was 40px) */
+    height: 44px;
+    width: 79px;
+  }
+}
+</style>
+
 <script setup>
 import { ref } from 'vue'
 import { locale, toggleLocale } from '../../utils/locale'
 import { translations } from '../../utils/translations'
-import BrandLogo3D from './BrandLogo3D.vue'
+import logo from '../../assets/logo.png'
 
 const emit = defineEmits(['open-wizard'])
 const isOpen = ref(false)

@@ -305,10 +305,10 @@ defineProps({
   },
 })
 
-// Tagline shown below TEAM ("Your Software Solutions Partner" / Arabic equivalent).
+// Tagline shown below TEAM ("Team Online" / Arabic equivalent).
 // Falls back to English string if the AR/EN translation hasn't been added yet.
 const brandTagline = computed(
-  () => translations[locale.value]?.brand_tagline || 'Your Software Solutions Partner'
+  () => translations[locale.value]?.brand_tagline || 'Team Online'
 )
 </script>
 

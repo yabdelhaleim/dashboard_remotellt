@@ -1,185 +1,114 @@
 <template>
-  <section class="max-w-7xl mx-auto my-20 sm:my-28 px-4 sm:px-6 lg:px-8 relative">
-    
-    <!-- Hero Layout Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center min-h-[580px] py-10">
-      
-      <!-- Right/Left Side: Text & Actions -->
-      <div class="lg:col-span-7 space-y-6 animate-slide-right" :class="locale === 'ar' ? 'text-right' : 'text-left'">
-        
-        <!-- Premium Badge (Aligned with text block, bold font, larger padding & readable text, width fits content) -->
-        <div class="inline-flex items-center gap-2.5 px-5 py-2.5 bg-[#11151F] border border-primary-400/25 rounded-full select-none shadow-sm w-fit">
-          <span class="flex h-2.5 w-2.5 rounded-full bg-[#00C6FF] animate-pulse shrink-0"></span>
-          <span class="font-display font-bold text-sm text-slate-200">
+  <section
+    class="split-hero relative overflow-hidden my-12 sm:my-16 px-4 sm:px-6 lg:px-8"
+    :dir="locale === 'ar' ? 'rtl' : 'ltr'"
+  >
+    <!-- Background image + dark overlay (covers the entire hero section) -->
+    <div class="hero-bg absolute inset-0 -z-10" aria-hidden="true"></div>
+    <div class="hero-bg-overlay absolute inset-0 -z-10" aria-hidden="true"></div>
+
+    <!-- Hero grid: artwork on one side, content on the other -->
+    <div class="hero max-w-7xl mx-auto relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center pt-6 sm:pt-10">
+
+      <!-- LEFT: Artwork (the original uploaded image, untouched) -->
+      <div class="hero-image order-1">
+        <img
+          :src="heroImage"
+          alt="Remotly Team — Your Software Solutions Partner"
+          class="hero-art w-full h-auto object-contain select-none"
+          draggable="false"
+        />
+      </div>
+
+      <!-- RIGHT: Arabic content -->
+      <div class="hero-content order-2 space-y-5 sm:space-y-6" :class="locale === 'ar' ? 'text-right' : 'text-left'">
+
+        <!-- Premium Badge -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-[#11151F] border border-primary-400/30 rounded-full select-none shadow-sm w-fit">
+          <span class="flex h-2 w-2 rounded-full bg-[#00C6FF] animate-pulse shrink-0"></span>
+          <span class="font-mono font-bold text-[11px] text-slate-200 tracking-widest uppercase">
             {{ t('hero_badge') }}
           </span>
         </div>
 
-        <!-- Headline — امتلك نظامك السحابي الذكي وأدر أعمالك بكفاءة -->
-        <h1 class="hero-headline text-[2.25rem] sm:text-[2.75rem] lg:text-[3.25rem] text-white tracking-normal font-black leading-[1.25] mb-4" :class="locale === 'ar' ? 'text-right' : 'text-left'">
-          <template v-if="locale === 'ar'">
-            <span class="bg-gradient-to-r from-primary-400 to-[#00C6FF] bg-clip-text text-transparent">{{ t('hero_title_brand') }}</span>
-            <span class="bg-gradient-to-r from-[#00C6FF] to-primary-400 bg-clip-text text-transparent mx-2">{{ t('hero_title_1') }}</span>
-            <span class="text-slate-200 block sm:inline">{{ t('hero_title_2') }}</span>
-          </template>
-          <template v-else>
-            <span class="bg-gradient-to-r from-primary-400 to-[#00C6FF] bg-clip-text text-transparent">Own Your Smart</span>
-            <span class="bg-gradient-to-r from-[#00C6FF] to-primary-400 bg-clip-text text-transparent mx-2">Cloud System</span>
-            <span class="text-slate-200 block sm:inline">and Manage Business Efficiently</span>
-          </template>
+        <!-- Headline -->
+        <h1 class="font-display font-black leading-[1.18] text-white text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">
+          {{ t('hero_title_pre') }}
+          <span class="block sm:inline bg-gradient-to-l from-primary-400 via-[#00C6FF] to-[#1E90FF] bg-clip-text text-transparent">
+            {{ t('hero_title_accent') }}
+          </span>
         </h1>
 
-        <!-- Subheading -->
-        <p class="font-body font-normal text-slate-300 text-base sm:text-lg leading-ar-relaxed max-w-2xl" :class="locale === 'ar' ? 'text-right' : 'text-left'">
+        <!-- Cyan Subtitle -->
+        <p class="font-display font-bold text-xl sm:text-2xl text-primary-400">
+          {{ t('hero_subtitle') }}
+        </p>
+
+        <!-- Description -->
+        <p class="font-body font-normal text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
           {{ t('hero_desc') }}
         </p>
 
-        <!-- Benefit Checklist (Sleek Glassmorphic Cards with Micro-interactions) -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div
-            v-for="feat in features"
-            :key="feat.label"
-            class="flex items-center gap-3.5 bg-dark-card/65 backdrop-blur-md border border-dark-border/60 hover:border-primary-400/40 p-4.5 rounded-2xl hover:shadow-[0_0_25px_rgba(30,144,255,0.06)] hover:-translate-y-0.5 transition-all duration-300 group cursor-pointer"
-            :class="locale === 'ar' ? 'text-right' : 'text-left'"
-          >
-            <span
-              :class="`w-9 h-9 rounded-xl ${feat.bg} flex items-center justify-center ${feat.color} shrink-0 group-hover:scale-105 transition-transform duration-300`"
-              v-html="feat.icon"
-            ></span>
-            <div>
-              <span class="font-display font-bold text-sm text-white block leading-snug group-hover:text-primary-400 transition-colors duration-300">{{ feat.label }}</span>
-              <span class="font-body font-normal text-xs text-dark-muted block mt-0.5 leading-snug">{{ feat.sub }}</span>
+        <!-- Services 5-column grid -->
+        <div class="space-y-2.5">
+          <p class="font-mono text-[10px] tracking-widest uppercase text-dark-muted/80 font-bold flex items-center gap-2" :class="locale === 'ar' ? 'flex-row-reverse' : ''">
+            <span class="block w-6 h-px bg-primary-400/50"></span>
+            <span>{{ t('hero_services') }}</span>
+            <span class="block w-6 h-px bg-primary-400/50"></span>
+          </p>
+          <div class="grid grid-cols-5 gap-2 sm:gap-3">
+            <div
+              v-for="(svc, i) in services"
+              :key="svc.label"
+              :style="{ animationDelay: (0.3 + i * 0.08) + 's' }"
+              class="service-card group flex flex-col items-center justify-center gap-1.5 py-3.5 px-2 bg-dark-card/60 border border-dark-border/70 hover:border-primary-400/60 hover:bg-dark-card/85 backdrop-blur rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,198,255,0.18)]"
+            >
+              <span class="text-primary-400 text-xl sm:text-2xl transition-transform duration-300 group-hover:scale-110" v-html="svc.icon"></span>
+              <span class="text-[10px] sm:text-[11px] font-display font-bold text-white text-center leading-tight">{{ svc.label }}</span>
             </div>
           </div>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 pt-4" :class="locale === 'ar' ? 'justify-end' : 'justify-start'">
+        <!-- 4 Features row -->
+        <div class="space-y-2.5">
+          <p class="font-mono text-[10px] tracking-widest uppercase text-dark-muted/80 font-bold flex items-center gap-2" :class="locale === 'ar' ? 'flex-row-reverse' : ''">
+            <span class="block w-6 h-px bg-primary-400/50"></span>
+            <span>{{ t('hero_features') }}</span>
+            <span class="block w-6 h-px bg-primary-400/50"></span>
+          </p>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+            <div
+              v-for="(f, i) in features"
+              :key="f.title"
+              :style="{ animationDelay: (0.6 + i * 0.08) + 's' }"
+              class="feature-pill flex items-center gap-2.5 py-2.5 px-3 bg-dark-card/40 border border-dark-border/60 hover:border-primary-400/40 rounded-xl backdrop-blur transition-all duration-300 hover:-translate-y-0.5"
+            >
+              <span class="w-7 h-7 shrink-0 rounded-lg bg-primary-400/10 border border-primary-400/20 flex items-center justify-center text-primary-400" v-html="f.icon"></span>
+              <div class="min-w-0">
+                <span class="block font-display font-bold text-[11px] sm:text-xs text-white leading-tight truncate">{{ f.title }}</span>
+                <span class="block font-body font-normal text-[9px] sm:text-[10px] text-dark-muted leading-tight truncate">{{ f.sub }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex items-center gap-4 pt-2" :class="locale === 'ar' ? 'flex-row' : 'flex-row-reverse'">
+          <span class="font-display font-bold text-sm sm:text-base text-white">{{ t('hero_cta_title') }}</span>
           <button
             @click="$emit('open-wizard')"
-            class="bg-gradient-to-l from-primary-400 to-vibrant-pink text-white font-display font-bold py-3.5 px-8 rounded-2xl transition-all duration-300 shadow-neon-purple hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0 cursor-pointer text-sm text-center hover:shadow-[0_0_35px_rgba(0,198,255,0.45)]"
+            class="cta-btn group inline-flex items-center gap-2.5 bg-gradient-to-l from-primary-400 to-[#00C6FF] text-white font-display font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-[0_8px_30px_rgba(0,198,255,0.35)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,198,255,0.55)] active:translate-y-0 cursor-pointer text-sm shrink-0"
           >
-            ✨ {{ t('book_now') }}
+            <span>{{ t('hero_cta_btn') }}</span>
+            <span class="cta-arrow inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/20 transition-transform duration-300 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5">
+                <path d="M22 2 11 13" /><path d="M22 2l-7 20-4-9-9-4Z" />
+              </svg>
+            </span>
           </button>
-          
-          <a
-            href="#products"
-            class="bg-transparent hover:bg-primary-400/10 text-dark-text border border-primary-400/30 hover:border-primary-400/60 font-display font-semibold py-3.5 px-7 rounded-2xl transition-all duration-300 text-center text-sm hover:-translate-y-0.5 active:translate-y-0"
-          >
-            {{ t('explore_systems') }}
-          </a>
         </div>
 
       </div>
-
-      <!-- Left Side: Custom Animated Cloud & App Architecture -->
-      <div class="lg:col-span-5 animate-slide-left relative flex items-center justify-center w-full min-h-[460px]">
-        <!-- Subtle Grid Pattern Background with Radial Fade -->
-        <div class="absolute inset-0 grid-pattern opacity-[0.14] [mask-image:radial-gradient(circle_at_center,black_40%,transparent_75%)] pointer-events-none z-0"></div>
-
-        <!-- Aura Glows matching sky-blue / cyan brand colors -->
-        <div class="absolute w-72 h-72 bg-[#00C6FF]/10 rounded-full blur-[120px] pointer-events-none top-1/4 right-1/4 animate-pulse duration-4000 z-0"></div>
-        <div class="absolute w-72 h-72 bg-[#1E90FF]/8 rounded-full blur-[120px] pointer-events-none bottom-1/4 left-1/4 animate-pulse duration-3000 z-0"></div>
-
-        <!-- Cohesive Floating Composition Container -->
-        <div class="relative w-full h-[400px] flex items-center justify-center animate-float-slow z-10">
-          
-          <!-- SVG Network Connections (Sky Blue Gradients) -->
-          <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 400 400" fill="none">
-            <!-- Hub to Dashboard -->
-            <path d="M 200 200 Q 260 130 300 120" stroke="url(#line-grad-1)" stroke-width="2" stroke-dasharray="6,6" class="animate-dash" />
-            <!-- Hub to Mobile -->
-            <path d="M 200 200 Q 120 230 90 280" stroke="url(#line-grad-2)" stroke-width="2" stroke-dasharray="6,6" class="animate-dash" />
-            <!-- Hub to DB -->
-            <path d="M 200 200 Q 270 270 310 270" stroke="url(#line-grad-3)" stroke-width="2" stroke-dasharray="6,6" class="animate-dash" />
-            
-            <defs>
-              <linearGradient id="line-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1E90FF" />
-                <stop offset="100%" stop-color="#00C6FF" />
-              </linearGradient>
-              <linearGradient id="line-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1E90FF" />
-                <stop offset="100%" stop-color="#2563EB" />
-              </linearGradient>
-              <linearGradient id="line-grad-3" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#00C6FF" />
-                <stop offset="100%" stop-color="#60A5FA" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <!-- 1. Central SaaS Cloud Hub (Slow Pulse) -->
-          <div class="absolute z-20 w-32 h-32 rounded-full bg-dark-card/90 backdrop-blur-md border-2 border-primary-400/40 flex flex-col items-center justify-center shadow-neon-cyan animate-pulse duration-[3000ms]">
-            <span class="text-3xl select-none filter drop-shadow-[0_0_8px_rgba(0,198,255,0.5)]"><svg class="w-10 h-10 text-primary-400 filter drop-shadow-[0_0_8px_rgba(0,198,255,0.4)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-            </svg></span>
-            <span class="text-[9px] font-mono text-primary-400 font-bold uppercase tracking-wider mt-1.5">Remotelly SaaS</span>
-            <span class="text-[8px] text-dark-muted font-bold">Cloud Core</span>
-          </div>
-
-          <!-- 2. Orbiting Node: Web Dashboard -->
-          <div class="absolute z-10 top-6 right-2 glass-card p-4 rounded-2xl w-48 shadow-card select-none">
-            <div class="flex items-center justify-between border-b border-dark-border/40 pb-2 mb-2">
-              <div class="flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-dark-border"></span>
-                <span class="w-1.5 h-1.5 rounded-full bg-dark-border"></span>
-                <span class="w-1.5 h-1.5 rounded-full bg-dark-border"></span>
-              </div>
-              <span class="font-mono text-[8px] text-dark-muted">Web Admin</span>
-            </div>
-            <div class="space-y-1.5 text-right">
-              <div class="h-2.5 bg-dark-hover rounded w-3/4 mr-auto"></div>
-              <div class="flex items-center justify-between pt-1">
-                <div class="w-16 h-4 bg-primary-400/10 border border-primary-400/20 rounded flex items-center justify-center">
-                  <span class="text-[8px] font-mono font-bold text-primary-400">92,450 ج</span>
-                </div>
-                <div class="w-12 h-2 bg-dark-hover rounded"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3. Orbiting Node: Mobile App -->
-          <div class="absolute z-10 bottom-4 left-2 glass-card p-3.5 rounded-[22px] w-28 h-44 shadow-card select-none">
-            <!-- Mobile Screen Frame -->
-            <div class="w-full h-full rounded-2xl border border-dark-border bg-dark-bg/60 p-2 flex flex-col justify-between">
-              <div class="flex items-center justify-between border-b border-dark-border/40 pb-1 mb-1">
-                <span class="text-[6px] font-mono text-dark-muted">12:00</span>
-                <span class="text-[6px] text-dark-muted">100%</span>
-              </div>
-              <!-- Notification Badge -->
-              <div class="bg-primary-400/20 border border-primary-400/30 p-1.5 rounded-lg text-right space-y-1">
-                <span class="text-[7px] text-primary-400 font-bold block leading-none">تفعيل الكاشير</span>
-                <span class="text-[6px] text-dark-text block leading-none flex items-center justify-end gap-0.5">
-                  <span>جاهز للعمل</span>
-                  <span class="w-1 h-1 rounded-full bg-emerald-400"></span>
-                </span>
-              </div>
-              <div class="h-10 bg-dark-card border border-dark-border rounded-lg flex flex-col justify-center px-1.5 gap-1">
-                <div class="h-1 bg-primary-400/30 rounded w-full"></div>
-                <div class="h-1 bg-primary-400/20 rounded w-5/6"></div>
-                <div class="h-1 bg-primary-400/10 rounded w-2/3"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 4. Orbiting Node: Database Cylinder -->
-          <div class="absolute z-10 bottom-6 right-6 glass-card p-3 rounded-2xl w-24 h-24 flex flex-col items-center justify-center shadow-card select-none">
-            <span class="text-xl"><svg class="w-6 h-6 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <ellipse cx="12" cy="5" rx="9" ry="3" fill="none" />
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-              <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3" />
-            </svg></span>
-            <span class="text-[9px] font-bold text-white mt-1">الربط الآمن</span>
-            <div class="flex gap-0.5 mt-1.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-primary-600 animate-ping"></span>
-              <span class="text-[7px] text-primary-600 font-mono">Syncing</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
     </div>
   </section>
 </template>
@@ -188,7 +117,7 @@
 import { computed } from 'vue'
 import { locale } from '../../utils/locale'
 import { translations } from '../../utils/translations'
-import BrandLogo3D from './BrandLogo3D.vue'
+import heroImage from '../../assets/hero-remotly.png'
 
 defineEmits(['open-wizard'])
 
@@ -196,54 +125,122 @@ function t(key) {
   return translations[locale.value][key] || key
 }
 
+// 5 services
+const services = computed(() => [
+  {
+    label: t('hero_svc_1'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  },
+  {
+    label: t('hero_svc_2'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+  },
+  {
+    label: t('hero_svc_3'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>`,
+  },
+  {
+    label: t('hero_svc_4'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`,
+  },
+  {
+    label: t('hero_svc_5'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-5 h-5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+  },
+])
+
+// 4 features
 const features = computed(() => [
   {
-    icon: `<svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
-    label: t('feat_1_title'),
-    sub: t('feat_1_sub'),
-    bg: 'bg-primary-400/10',
-    color: 'text-primary-400',
+    title: t('hero_f1_title'),
+    sub: t('hero_f1_sub'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
   },
   {
-    icon: `<svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>`,
-    label: t('feat_2_title'),
-    sub: t('feat_2_sub'),
-    bg: 'bg-[#00C6FF]/10',
-    color: 'text-[#00C6FF]',
+    title: t('hero_f2_title'),
+    sub: t('hero_f2_sub'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
   },
   {
-    icon: `<svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`,
-    label: t('feat_3_title'),
-    sub: t('feat_3_sub'),
-    bg: 'bg-primary-400/10',
-    color: 'text-primary-400',
+    title: t('hero_f3_title'),
+    sub: t('hero_f3_sub'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
   },
   {
-    icon: `<svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"/></svg>`,
-    label: t('feat_4_title'),
-    sub: t('feat_4_sub'),
-    bg: 'bg-[#00C6FF]/10',
-    color: 'text-[#00C6FF]',
+    title: t('hero_f4_title'),
+    sub: t('hero_f4_sub'),
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>`,
   },
 ])
 </script>
 
 <style scoped>
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-15px) rotate(0.8deg);
+/* ============ Hero background image + dark overlay ============ */
+.hero-bg {
+  background-image: url('/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.04);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.hero-bg-overlay {
+  background: rgba(5, 10, 25, 0.75);
+  background-image:
+    linear-gradient(180deg, rgba(5, 10, 25, 0.55) 0%, rgba(5, 10, 25, 0.85) 100%),
+    radial-gradient(circle at 30% 30%, rgba(0, 198, 255, 0.08) 0%, transparent 60%);
+  background-blend-mode: normal;
+  z-index: -9;
+}
+
+@media (max-width: 768px) {
+  .hero-bg-overlay {
+    background: rgba(5, 10, 25, 0.85);
   }
 }
-.animate-float-slow {
-  animation: floatSlow 7s ease-in-out infinite;
+
+/* ============ Hero artwork image ============ */
+.hero-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 198, 255, 0.18));
+  /* Original aspect ratio: 1536×1024 = 1.5:1 — preserve via object-fit */
 }
-.grid-pattern {
-  background-size: 24px 24px;
-  background-image: 
-    linear-gradient(to right, rgba(30, 198, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(30, 198, 255, 0.08) 1px, transparent 1px);
+
+@media (max-width: 992px) {
+  .hero-image { order: 1; }
+  .hero-content { order: 2; text-align: center; }
+}
+
+/* ============ Service cards entrance ============ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.service-card {
+  animation: fadeUp 0.5s ease-out backwards;
+}
+.feature-pill {
+  animation: fadeUp 0.5s ease-out backwards;
+}
+
+/* ============ CTA arrow subtle pulse ============ */
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.45); }
+  50%      { box-shadow: 0 0 0 8px rgba(0, 198, 255, 0); }
+}
+.cta-btn { animation: ctaPulse 2.5s ease-in-out infinite; }
+
+/* ============ Accessibility ============ */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .feature-pill,
+  .cta-btn {
+    animation: none !important;
+  }
 }
 </style>

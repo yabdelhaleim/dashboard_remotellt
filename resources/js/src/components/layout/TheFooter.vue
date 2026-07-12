@@ -1,13 +1,17 @@
 <template>
   <footer class="bg-dark-bg text-white border-t border-dark-border py-14">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-        
-        <!-- Brand -->
+
+        <!-- Brand: original uploaded logo (used as-is, identical across all breakpoints) -->
         <div class="text-center md:text-right space-y-3">
           <router-link to="/" class="inline-block mx-auto md:mx-0">
-            <BrandLogo3D />
+            <img
+              :src="logo"
+              alt="Remotly Team — Your Software Solutions Partner"
+              class="footer-logo h-[110px] sm:h-[130px] w-auto object-contain select-none"
+            />
           </router-link>
           <p class="font-body font-normal text-dark-muted text-sm mt-2 leading-ar-normal">
             {{ t('footer_desc') }}
@@ -41,7 +45,7 @@
 <script setup>
 import { locale } from '../../utils/locale'
 import { translations } from '../../utils/translations'
-import BrandLogo3D from './BrandLogo3D.vue'
+import logo from '../../assets/logo.png'
 
 function t(key) {
   return translations[locale.value][key] || key
