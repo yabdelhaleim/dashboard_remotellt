@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminNotifiable;
 use App\Models\Booking;
+use App\Notifications\NewBookingNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Notification;
 
 class BookingController extends Controller
 {
@@ -60,6 +63,17 @@ class BookingController extends Controller
             'notes'               => $data['notes'] ?? '',
             'status'              => 'new',
         ]);
+
+        // Dispatch notifications (database + telegram)
+        $payload = array_merge(
+            $data,
+            [
+                'id'              => $booking->id,
+                'meetingDate'     => $booking->meeting_date,
+                'meetingTimeSlot' => $booking->meeting_time_slot,
+            ]
+        );
+        Notification::send(new AdminNotifiable(), new NewBookingNotification($payload));
 
         return response()->json($this->format($booking), 201);
     }

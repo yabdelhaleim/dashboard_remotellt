@@ -96,7 +96,7 @@
         <div class="flex items-center gap-4 pt-2" :class="locale === 'ar' ? 'flex-row' : 'flex-row-reverse'">
           <span class="font-display font-bold text-sm sm:text-base text-white">{{ t('hero_cta_title') }}</span>
           <button
-            @click="$emit('open-wizard')"
+            @click="onHeroCTA"
             class="cta-btn group inline-flex items-center gap-2.5 bg-gradient-to-l from-primary-400 to-[#00C6FF] text-white font-display font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-[0_8px_30px_rgba(0,198,255,0.35)] hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgba(0,198,255,0.55)] active:translate-y-0 cursor-pointer text-sm shrink-0"
           >
             <span>{{ t('hero_cta_btn') }}</span>
@@ -117,12 +117,18 @@
 import { computed } from 'vue'
 import { locale } from '../../utils/locale'
 import { translations } from '../../utils/translations'
+import { trackCTAClick } from '../../utils/analytics'
 import heroImage from '../../assets/hero-remotly.png'
 
-defineEmits(['open-wizard'])
+const emit = defineEmits(['open-wizard'])
 
 function t(key) {
   return translations[locale.value][key] || key
+}
+
+function onHeroCTA() {
+  trackCTAClick('hero_cta', { source: 'hero_section', button_text: t('hero_cta_btn') })
+  emit('open-wizard')
 }
 
 // 5 services

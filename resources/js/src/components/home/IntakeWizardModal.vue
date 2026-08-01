@@ -345,6 +345,7 @@ import { ref, reactive, computed, watch } from 'vue'
 import { useBookingsStore } from '../../stores/useBookingsStore'
 import { useRequestsStore } from '../../stores/useRequestsStore'
 import { useProductsStore } from '../../stores/useProductsStore'
+import { trackWizardStep, trackWizardComplete, trackEvent } from '../../utils/analytics'
 
 const props = defineProps({
   isOpen: { type: Boolean, default: false }
@@ -445,6 +446,7 @@ function nextStep() {
     return
   }
   step.value++
+  trackWizardStep(step.value, 4, { source: 'intake_wizard' })
 }
 
 function prevStep() {
@@ -482,8 +484,17 @@ async function confirmBooking() {
     })
 
     step.value = 4
+    // Track wizard completion (GA4 custom event + Meta Pixel Schedule)
+    trackWizardComplete({
+      business_type: form.businessType,
+      products_count: form.selectedProducts.length,
+      has_custom_idea: hasCustomIdea.value,
+      meeting_date: form.meetingDate,
+      meeting_slot: form.meetingTimeSlot,
+    })
   } catch (e) {
     submitError.value = e.message || 'حدث خطأ، يرجى المحاولة مجدداً.'
+    trackEvent('wizard_submit_error', { error: e.message })
   } finally {
     submitting.value = false
   }

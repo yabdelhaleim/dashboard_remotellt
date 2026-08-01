@@ -48,3 +48,11 @@ Route::delete('/tickets/{id}',                [TicketController::class, 'destroy
 
 // --- Dashboard Stats ---
 Route::get('/stats',                          [LeadController::class, 'stats']);
+
+// --- Admin Notifications (polled by AdminNotificationBell.vue) ---
+Route::prefix('admin/notifications')->group(function () {
+    Route::get('/',                       [\App\Http\Controllers\Api\NotificationController::class, 'index']);
+    Route::post('/{id}/read',            [\App\Http\Controllers\Api\NotificationController::class, 'markRead']);
+    Route::post('/read-all',             [\App\Http\Controllers\Api\NotificationController::class, 'markAllRead']);
+    Route::delete('/{id}',               [\App\Http\Controllers\Api\NotificationController::class, 'destroy']);
+});

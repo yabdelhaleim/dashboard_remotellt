@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminNotifiable;
 use App\Models\Lead;
+use App\Notifications\NewLeadNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Notification;
 
 class LeadController extends Controller
 {
@@ -31,6 +34,10 @@ class LeadController extends Controller
         ]);
 
         $lead = Lead::create(array_merge($data, ['status' => 'new']));
+
+        // Dispatch notifications (database + telegram)
+        Notification::send(new AdminNotifiable(), new NewLeadNotification(array_merge($data, ['id' => $lead->id])));
+
         return response()->json($this->format($lead), 201);
     }
 

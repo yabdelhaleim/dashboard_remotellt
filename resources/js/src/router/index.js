@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '../stores/useAuthStore'
+import { trackPageView } from '../utils/analytics'
 
 const routes = [
   { path: '/', component: () => import('../views/public/HomeView.vue') },
@@ -31,6 +32,20 @@ router.beforeEach((to, from, next) => {
     return next()
   }
   next()
+})
+
+// Fire page_view event on every successful route change (SPA-aware)
+// GA4 already fires page_view on initial load via gtag('config'); we only
+// need to re-fire it for client-side navigation after the first page.
+let isFirstNavigation = true
+router.afterEach((to, from) => {
+  if (isFirstNavigation) {
+    // Initial load: GA4 already tracked via config; only fire Meta Pixel
+    if (typeof window.fbq === 'function') window.fbq('track', 'PageView')
+    isFirstNavigation = false
+    return
+  }
+  trackPageView(to.fullPath)
 })
 
 export default router

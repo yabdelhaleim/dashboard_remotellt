@@ -41,12 +41,7 @@
           >
             {{ t('support') }}
           </router-link>
-          <router-link
-            to="/admin"
-            class="font-display font-semibold text-sm text-vibrant-cyan hover:text-cyan-300 transition-all duration-300"
-          >
-            {{ t('admin') }}
-          </router-link>
+          <!-- Admin link removed — admin is owner-only, not for public visitors -->
         </div>
 
         <!-- Desktop CTA & Language Switcher -->
@@ -60,7 +55,7 @@
           </button>
           
           <button
-            @click="$emit('open-wizard')"
+            @click="onOpenWizard('navbar_desktop')"
             class="bg-gradient-to-l from-primary-400 to-vibrant-pink hover:scale-[1.02] hover:-translate-y-0.5 active:translate-y-0 text-white font-display font-bold text-sm py-2.5 px-6 rounded-xl shadow-neon-cyan/20 transition-all duration-300 cursor-pointer"
           >
             {{ t('book_consultation') }}
@@ -91,8 +86,9 @@
           <a href="/#products" @click="isOpen = false" class="block px-4 py-3 rounded-xl font-display font-semibold text-sm text-slate-300 hover:bg-dark-hover hover:text-white transition-all">{{ t('solutions') }}</a>
           <a href="/#how-it-works" @click="isOpen = false" class="block px-4 py-3 rounded-xl font-display font-semibold text-sm text-slate-300 hover:bg-dark-hover hover:text-white transition-all">{{ t('how_works') }}</a>
           <router-link to="/support" @click="isOpen = false" class="block px-4 py-3 rounded-xl font-display font-semibold text-sm text-slate-300 hover:bg-dark-hover hover:text-white transition-all">{{ t('support') }}</router-link>
-          <router-link to="/admin" @click="isOpen = false" class="block px-4 py-3 rounded-xl font-display font-semibold text-sm text-vibrant-cyan hover:bg-dark-hover transition-all">{{ t('admin') }}</router-link>
-          
+
+          <!-- Admin link removed — admin is owner-only -->
+
           <!-- Mobile Language Selector -->
           <button
             @click="toggleLocale"
@@ -156,9 +152,10 @@
 </style>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { locale, toggleLocale } from '../../utils/locale'
 import { translations } from '../../utils/translations'
+import { trackCTAClick, trackLanguageSwitch } from '../../utils/analytics'
 import logo from '../../assets/logo.png'
 
 const emit = defineEmits(['open-wizard'])
@@ -168,9 +165,19 @@ function t(key) {
   return translations[locale.value][key] || key
 }
 
+// Track language switches (analytics)
+watch(locale, (newLocale, oldLocale) => {
+  if (oldLocale) trackLanguageSwitch(oldLocale, newLocale)
+})
+
+function onOpenWizard(source = 'navbar_desktop') {
+  trackCTAClick('book_consultation', { source })
+  emit('open-wizard')
+}
+
 function triggerMobileWizard() {
   isOpen.value = false
-  setTimeout(() => emit('open-wizard'), 150)
+  setTimeout(() => onOpenWizard('navbar_mobile'), 150)
 }
 </script>
 

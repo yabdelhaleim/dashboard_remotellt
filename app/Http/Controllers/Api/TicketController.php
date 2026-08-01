@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminNotifiable;
 use App\Models\Ticket;
+use App\Notifications\NewTicketNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 
 class TicketController extends Controller
@@ -79,6 +82,9 @@ class TicketController extends Controller
         }
 
         $ticket = Ticket::create($validator->validated());
+
+        // Dispatch notifications (database + telegram)
+        Notification::send(new AdminNotifiable(), new NewTicketNotification($ticket->toArray()));
 
         return response()->json($ticket, 201);
     }
